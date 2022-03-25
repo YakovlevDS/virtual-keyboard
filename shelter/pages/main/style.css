@@ -1,0 +1,68 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 62.5%;
+    font-weight: normal;
+    color: #fff;
+    background: url('../../assets/images/start-screen-gradient-background.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 h5,
+h5 {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 120rem;
+    margin: 0 auto;
+}
+
+header,
+.header__logo,
+.header_menu ul {
+    display: flex;
+    align-items: center;
+}
+
+header {}
+
+.header__logo {
+    flex-direction: column;
+    width: 18.4rem;
+}
+
+.header__menu {
+    width: 44.3rem;
+}
+
+li {
+    display: block;
+}
