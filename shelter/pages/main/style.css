@@ -550,3 +550,155 @@
                     line-height: 1.5;
                     color: #B2B2B2;
                 }
+                
+                footer {
+                    height: 35rem;
+                    max-width: 128rem;
+                    background: #19b32e
+                }
+                
+                .footer-content {
+                    height: 31rem;
+                    width: 120rem;
+                    margin-top: 4rem;
+                    margin-left: 4rem;
+                    background: #685846;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                .footer-content__contacts {
+                    height: 23.4rem;
+                    width: 27.8rem;
+                    background: #e27d08;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    /* margin-right: 16rem; */
+                }
+                
+                .footer-content__contacts_title {
+                    height: 9rem;
+                    width: 27.8rem;
+                    font-family: 'Georgia';
+                    font-size: 3.5rem;
+                    line-height: 1.3;
+                    letter-spacing: 0.06rem;
+                    color: #fff;
+                }
+                
+                .footer-content__contacts_mail {
+                    height: 3.2rem;
+                    width: 25.1rem;
+                    display: flex;
+                    flex-direction: row;
+                }
+                
+                .footer-content__contacts_mail-ico {
+                    height: 2.6rem;
+                    width: 4rem;
+                    margin-right: 2rem;
+                }
+                
+                .footer-content__contacts_mail-text {
+                    height: 2.3rem;
+                    width: 19.1rem;
+                    font-family: 'Georgia';
+                    font-size: 2rem;
+                    line-height: 1.3;
+                    letter-spacing: 0.06rem;
+                    color: #F1CDB3;
+                }
+                
+                .footer-content__contacts_phone {
+                    height: 3.2rem;
+                    width: 23.9rem;
+                    display: flex;
+                    flex-direction: row;
+                }
+                
+                .footer-content__contacts_phone-ico {
+                    height: 3.2rem;
+                    width: 4rem;
+                    margin-right: 2rem;
+                }
+                
+                .footer-content__contacts_phone-num {
+                    height: 2.3rem;
+                    width: 17.9rem;
+                    font-family: 'Georgia';
+                    font-size: 2rem;
+                    line-height: 1.3;
+                    letter-spacing: 0.06rem;
+                    color: #F1CDB3;
+                }
+                
+                .footer-content__address {
+                    height: 23.4rem;
+                    width: 30.2rem;
+                    background: #e27d08;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                
+                .footer-content__address_title {
+                    height: 9rem;
+                    width: 27rem;
+                    font-family: 'Georgia';
+                    font-size: 3.5rem;
+                    line-height: 1.3;
+                    letter-spacing: 0.06rem;
+                    color: #fff;
+                }
+                
+                .footer-content__address_boston {
+                    width: 30.2rem;
+                    height: 4.6rem;
+                    display: flex;
+                    flex-direction: row;
+                }
+                
+                .footer-content__address_boston-ico {
+                    height: 3.2rem;
+                    width: 2.2rem;
+                    margin-right: 2rem;
+                }
+                
+                .footer-content__address_boston-text {
+                    height: 4.6rem;
+                    width: 26rem;
+                    font-family: 'Georgia';
+                    font-size: 2rem;
+                    line-height: 1.15;
+                    letter-spacing: 0.06rem;
+                    color: #F1CDB3;
+                }
+                
+                .footer-content__address_london {
+                    width: 30.2rem;
+                    height: 3.2rem;
+                    display: flex;
+                    flex-direction: row;
+                }
+                
+                .footer-content__address_london-ico {
+                    height: 3.2rem;
+                    width: 2.2rem;
+                    margin-right: 2rem;
+                }
+                
+                .footer-content__address_london-text {
+                    height: 2.3rem;
+                    width: 26rem;
+                    font-family: 'Georgia';
+                    font-size: 2rem;
+                    line-height: 1.15;
+                    letter-spacing: 0.06rem;
+                    color: #F1CDB3;
+                }
+                
+                .footer-content__img {
+                    height: 31rem;
+                    width: 30rem;
+                }
