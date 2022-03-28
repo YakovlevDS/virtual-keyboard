@@ -67,11 +67,13 @@ h5 {
 
 .wrap_bg {
     max-width: 128rem;
+    background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
+    background-repeat: no-repeat;
 }
 
 .container {
-    height: 100vh;
-    max-width: 120rem;
+    height: 89.9rem;
+    max-width: 128rem;
     margin: auto;
 }
 
@@ -83,13 +85,11 @@ header,
 }
 
 header {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 6rem;
+    padding-left: 4rem;
     height: 11.7rem;
-    background: url('../../assets/images/start-screen-gradient-background.png'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
-    background-repeat: no-repeat;
 }
 
 .header__logo {
@@ -132,11 +132,10 @@ li {
 }
 
 .start-screen {
+    display: flex;
     height: 78.2rem;
     padding-top: 6.9rem;
-    display: flex;
-    background: url('../../assets/images/start-screen-gradient-background.png'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
-    background-repeat: no-repeat;
+    padding-left: 4rem;
 }
 
 .start-screen__content {
@@ -186,10 +185,8 @@ li {
 
 .about {
     height: 58.8rem;
-    background: rgb(245, 230, 18);
-    /* display: flex;
-                    justify-content: center;
-                    align-items: center; */
+    /* background: rgb(245, 230, 18); */
+    background-position: 100rem;
 }
 
 .about-container {
@@ -250,7 +247,8 @@ li {
 
 .our-friends {
     height: 87.7rem;
-    background: rgb(14, 240, 59);
+    /* background: rgb(14, 240, 59); */
+    background: #F6F6F6;
     position: relative;
 }
 
@@ -387,7 +385,7 @@ li {
 
 .help {
     height: 61.1rem;
-    background: rgb(219, 65, 65);
+    /* background: rgb(219, 65, 65); */
     padding-top: 10rem;
     display: flex;
     justify-content: center;
@@ -396,7 +394,7 @@ li {
 .help_wrap {
     margin-top: 8rem;
     margin-bottom: 10rem;
-    background: #2319b3;
+    /* background: #2319b3; */
     height: 43.1em;
     display: flex;
     flex-direction: column;
@@ -489,7 +487,8 @@ li {
 
 .in-addition {
     height: 46.2rem;
-    background: #2319b3;
+    /* background: #2319b3; */
+    background: #F6F6F6;
     display: flex;
     justify-content: center;
 }
@@ -499,7 +498,7 @@ li {
     width: 91.5rem;
     margin-top: 8rem;
     margin-bottom: 10rem;
-    background: #19b32e;
+    /* background: #19b32e; */
     display: flex;
 }
 
@@ -578,16 +577,17 @@ li {
 
 footer {
     height: 35rem;
-    max-width: 128rem;
-    background: #19b32e
+    /* background: #19b32e
+     */
+    background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
+    background-repeat: no-repeat;
 }
 
 .footer-content {
-    height: 31rem;
-    width: 120rem;
-    margin-top: 4rem;
-    margin-left: 4rem;
-    background: #685846;
+    height: 35rem;
+    padding-top: 4rem;
+    padding-left: 4rem;
+    /* background: #685846; */
     display: flex;
     justify-content: space-between;
 }
@@ -595,7 +595,7 @@ footer {
 .footer-content__contacts {
     height: 23.4rem;
     width: 27.8rem;
-    background: #e27d08;
+    /* background: #e27d08; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -661,7 +661,7 @@ footer {
 .footer-content__address {
     height: 23.4rem;
     width: 30.2rem;
-    background: #e27d08;
+    /* background: #e27d08; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
