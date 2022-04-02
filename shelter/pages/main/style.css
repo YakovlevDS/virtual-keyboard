@@ -134,8 +134,14 @@ li {
     position: relative;
 }
 
+.active,
 li a:hover {
     color: #fafafa;
+}
+
+.active::after {
+    width: 100%;
+    right: 0;
 }
 
 li a:hover::after {
