@@ -37,6 +37,10 @@ body {
     color: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -67,23 +71,30 @@ h5 {
 
 .wrap_bg {
     max-width: 128rem;
-    background-repeat: no-repeat;
     margin: auto;
 }
 
-.container {
-    max-width: 128rem;
-    height: 120rem;
-}
-
 header,
+.header-wrap,
 .header__logo,
 .header_menu ul {
     display: flex;
     align-items: center;
+    background: #fff;
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 128rem;
+    margin: auto;
+}
+
+.header-wrap {
+    width: 128rem;
     justify-content: space-between;
     align-items: center;
     height: 12rem;
@@ -98,6 +109,7 @@ header {
 .header__logo_title {
     width: 18.4rem;
     height: 3.5rem;
+    /* font-family: 'Georgia'; */
     font-size: 3.2rem;
     line-height: 1.1;
     margin-bottom: 1rem;
@@ -127,12 +139,42 @@ li {
     line-height: 1.6;
     color: #545454;
     margin-left: 3.5rem;
+    position: relative;
+}
+
+.active,
+li a:hover {
+    color: #292929;
+}
+
+.active::after {
+    width: 100%;
+    right: 0;
+}
+
+li a:hover::after {
+    width: 100%;
+    right: 0;
+}
+
+li a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.45rem;
+    right: 0;
+    background: none repeat scroll 0 0 transparent;
+    height: .3rem;
+    background: #F1CDB3;
+    transition: width .5s ease 0s, right .5s ease 0s;
+    width: 0;
 }
 
 .our-friends {
-    height: 134.2rem;
+    /* height: 134.2rem; */
     background: #F6F6F6;
     position: relative;
+    padding-top: 12rem;
 }
 
 .our-friends__container {
@@ -176,6 +218,20 @@ li {
     flex-direction: column;
     align-items: center;
     background: #fafafa;
+}
+
+.our-friends__cards_card:hover {
+    cursor: pointer;
+    background: rgb(236, 233, 233);
+}
+
+.our-friends__cards_card:hover .our-friends__cards_card-btn {
+    /* background: #F1CDB3; */
+    background: #FDDCC4;
+}
+
+.our-friends__cards_card-btn:hover {
+    background: #f16b0a;
 }
 
 .our-friends__cards_card-img {
@@ -250,7 +306,7 @@ li {
     color: #CDCDCD;
 }
 
-.pagination__btn:hover {
+.pagination__btn:not([disabled]):hover {
     background: #F1CDB3;
     color: #292929;
 }
@@ -278,6 +334,8 @@ li {
 }
 
 footer {
+    max-width: 128rem;
+    margin: auto;
     height: 35rem;
     background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
     background-repeat: no-repeat;
@@ -322,9 +380,10 @@ footer {
     margin-right: 2rem;
 }
 
-.footer-content__contacts_mail-ico img:hover {
+
+/* .footer-content__contacts_mail-ico img:hover {
     fill: #c05a11;
-}
+} */
 
 .footer-content__contacts_mail-text {
     height: 2.3rem;

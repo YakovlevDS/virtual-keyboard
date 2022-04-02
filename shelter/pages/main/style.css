@@ -69,12 +69,6 @@ h5 {
     margin: 0;
 }
 
-
-/* .container {
-    height: 89.9rem;
-    max-width: 128rem;
-} */
-
 .header,
 .header-wrap,
 .header__logo,
@@ -632,6 +626,8 @@ li a::after {
 }
 
 footer {
+    max-width: 128rem;
+    margin: auto;
     height: 35rem;
     background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
     background-repeat: no-repeat;
