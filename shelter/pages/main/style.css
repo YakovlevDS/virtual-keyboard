@@ -340,6 +340,20 @@ li a::after {
     margin-bottom: 3rem;
 }
 
+.our-friends__cards_card:hover {
+    cursor: pointer;
+    background: rgb(236, 233, 233);
+}
+
+.our-friends__cards_card:hover .our-friends__cards_card-btn {
+    /* background: #F1CDB3; */
+    background: #FDDCC4;
+}
+
+.our-friends__cards_card-btn:hover {
+    background: #f16b0a;
+}
+
 .our-friends__cards_card-img {
     margin-bottom: 3rem;
     height: 27rem;
@@ -358,6 +372,7 @@ li a::after {
     padding: 0px;
     width: 18.7rem;
     height: 5.2rem;
+    background: #fff;
 }
 
 .our-friends__cards_card-text {
@@ -386,6 +401,10 @@ li a::after {
     align-self: center;
     margin-top: 6rem;
     margin-bottom: 10rem;
+}
+
+.our-friends_btn:hover {
+    background: #FDDCC4
 }
 
 .arrow-right,
@@ -584,6 +603,10 @@ li a::after {
     border-radius: .9rem
 }
 
+.in-addition__wrap_content-card:hover {
+    background: #FDDCC4;
+}
+
 .in-addition__wrap_content-card-img {
     height: 2.3rem;
     width: 3rem;
@@ -609,8 +632,6 @@ li a::after {
 }
 
 footer {
-    max-width: 128rem;
-    margin: auto;
     height: 35rem;
     background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
     background-repeat: no-repeat;
@@ -626,8 +647,8 @@ footer {
 }
 
 .footer-content__contacts {
-    padding-top: 1.6rem;
-    height: 23.4rem;
+    margin-top: 1.6rem;
+    height: 25rem;
     width: 27.8rem;
     display: flex;
     flex-direction: column;
@@ -651,9 +672,12 @@ footer {
 }
 
 .footer-content__contacts_mail-ico {
-    height: 2.6rem;
     width: 4rem;
     margin-right: 2rem;
+}
+
+.footer-content__contacts_mail-ico img:hover {
+    fill: #c05a11;
 }
 
 .footer-content__contacts_mail-text {
@@ -672,9 +696,9 @@ footer {
     flex-direction: row;
 }
 
-.footer-content__contacts_phone-ico {
-    height: 3.2rem;
+.footer-content__contacts_phone-ico img {
     width: 4rem;
+    height: 3.2rem;
     margin-right: 2rem;
 }
 
@@ -688,8 +712,8 @@ footer {
 }
 
 .footer-content__address {
-    padding-top: 1.6rem;
-    height: 23.4rem;
+    margin-top: 1.6rem;
+    height: 25rem;
     width: 30.2rem;
     display: flex;
     flex-direction: column;
@@ -710,15 +734,19 @@ footer {
 .footer-content__address_boston {
     width: 30.2rem;
     height: 4.6rem;
-    padding-bottom: 3.2rem;
+    /* margin-bottom: 3.2rem; */
     display: flex;
 }
 
+.footer-content__address_london-ico,
 .footer-content__address_boston-ico {
-    height: 3.2rem;
     width: 2.2rem;
+    height: 3.2rem;
     margin-right: 2rem;
-    padding-top: 0.7rem;
+}
+
+.footer-content__address_boston-ico {
+    margin-top: 0.7rem;
 }
 
 .footer-content__address_boston-text {
@@ -734,13 +762,8 @@ footer {
     width: 30.2rem;
     height: 3.2rem;
     display: flex;
-    flex-direction: row;
-}
-
-.footer-content__address_london-ico {
-    height: 3.2rem;
-    width: 2.2rem;
-    margin-right: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-content__address_london-text {
@@ -755,4 +778,13 @@ footer {
 .footer-content__img {
     height: 31rem;
     width: 30rem;
+}
+
+.footer-content__address_london-text :hover,
+.footer-content__address_boston-text :hover,
+.footer-content__contacts_phone-num:hover,
+.footer-content__contacts_mail-text:hover {
+    color: #c05a11;
+    /* color: #FDDCC4; */
+    ;
 }
