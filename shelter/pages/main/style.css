@@ -37,6 +37,10 @@ body {
     color: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -214,6 +218,10 @@ li a::after {
     color: #292929;
 }
 
+.start-screen__content_btn:hover {
+    background: #FDDCC4;
+}
+
 .start-screen__img {
     width: 69.8rem;
     height: 72.8rem;
@@ -223,6 +231,8 @@ li a::after {
     max-width: 128rem;
     height: 58.8rem;
     margin: auto;
+    /* background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgb(202, 177, 177) 0%, rgb(179, 170, 170) 72%); */
 }
 
 .about-container {
@@ -390,6 +400,13 @@ li a::after {
     height: 5.2rem;
     border: .2rem solid #F1CDB3;
     border-radius: 10rem;
+    background: #fff
+}
+
+.arrow-right:hover,
+.arrow-left:hover {
+    background: #FDDCC4;
+    ;
 }
 
 .arrow-left img,
