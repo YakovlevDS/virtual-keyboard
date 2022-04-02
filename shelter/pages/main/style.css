@@ -65,19 +65,14 @@ h5 {
     margin: 0;
 }
 
-.wrap_bg {
-    max-width: 128rem;
-    background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
-    background-repeat: no-repeat;
-}
 
-.container {
+/* .container {
     height: 89.9rem;
     max-width: 128rem;
-    margin: auto;
-}
+} */
 
-header,
+.header,
+.header-wrap,
 .header__logo,
 .header_menu ul {
     display: flex;
@@ -85,11 +80,18 @@ header,
 }
 
 header {
+    background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
+    background-repeat: no-repeat;
+    max-width: 128rem;
+    margin: auto;
+}
+
+.header-wrap {
+    width: 128rem;
     justify-content: space-between;
     align-items: center;
     padding-top: 6rem;
     padding-left: 4rem;
-    height: 11.7rem;
 }
 
 .header__logo {
@@ -103,6 +105,7 @@ header {
     font-size: 3.2rem;
     line-height: 1.1;
     margin-bottom: 1rem;
+    font-weight: 400;
     color: #F1CDB3
 }
 
@@ -126,8 +129,38 @@ li {
     font-family: 'Arial';
     font-size: 1.5rem;
     line-height: 1.6;
-    color: #FAFAFA;
+    color: #cdcdcd;
     margin-right: 3.5rem;
+    position: relative;
+}
+
+li a:hover {
+    color: #fafafa;
+}
+
+li a:hover::after {
+    width: 100%;
+    right: 0;
+}
+
+li a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.45rem;
+    right: 0;
+    background: none repeat scroll 0 0 transparent;
+    height: .3rem;
+    background: #F1CDB3;
+    transition: width .5s ease 0s, right .5s ease 0s;
+    width: 0;
+}
+
+.not-only {
+    background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
+    background-repeat: no-repeat;
+    max-width: 128rem;
+    margin: auto;
 }
 
 .start-screen {
@@ -181,8 +214,9 @@ li {
 }
 
 .about {
+    max-width: 128rem;
     height: 58.8rem;
-    background-position: 100rem;
+    margin: auto;
 }
 
 .about-container {
@@ -241,7 +275,9 @@ li {
 }
 
 .our-friends {
+    max-width: 128rem;
     height: 87.7rem;
+    margin: auto;
     background: #F6F6F6;
     position: relative;
 }
@@ -365,6 +401,8 @@ li {
 }
 
 .help {
+    max-width: 128rem;
+    margin: auto;
     height: 61.1rem;
     padding-top: 10rem;
     display: flex;
@@ -548,6 +586,8 @@ li {
 }
 
 footer {
+    max-width: 128rem;
+    margin: auto;
     height: 35rem;
     background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
     background-repeat: no-repeat;
