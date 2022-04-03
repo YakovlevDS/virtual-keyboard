@@ -196,6 +196,7 @@ li a::after {
     text-align: center;
     letter-spacing: 0.06rem;
     color: #545454;
+    font-weight: normal;
 }
 
 .our-friends__slider {
@@ -382,6 +383,7 @@ footer {
     line-height: 1.3;
     letter-spacing: 0.06rem;
     color: #fff;
+    font-weight: normal;
 }
 
 .contacts-mail {
@@ -445,6 +447,7 @@ footer {
     letter-spacing: 0.06rem;
     color: #fff;
     padding-bottom: 3.4rem;
+    font-weight: normal;
 }
 
 .ico-city {
