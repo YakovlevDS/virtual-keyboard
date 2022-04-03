@@ -63,16 +63,21 @@ input {
 h1,
 h2,
 h3,
-h4 h5,
-h5 {
+h4,
+h5,
+h6,
+p {
     padding: 0;
     margin: 0;
 }
 
+
+/* ------------header---------- */
+
 .header,
-.header-wrap,
+.wrap,
 .header__logo,
-.header_menu ul {
+.header__menu ul {
     display: flex;
     align-items: center;
 }
@@ -84,7 +89,7 @@ header {
     margin: auto;
 }
 
-.header-wrap {
+.wrap {
     width: 128rem;
     justify-content: space-between;
     align-items: center;
@@ -97,7 +102,7 @@ header {
     width: 18.4rem;
 }
 
-.header__logo_title {
+.logo-title {
     width: 18.4rem;
     height: 3.5rem;
     font-size: 3.2rem;
@@ -107,7 +112,7 @@ header {
     color: #F1CDB3
 }
 
-.header__logo_subtitle {
+.logo-subtitle {
     width: 17.9rem;
     height: 1.5rem;
     font-family: 'Arial';
@@ -116,10 +121,6 @@ header {
     display: flex;
     align-items: center;
     letter-spacing: 0.1rem;
-}
-
-.header__menu {
-    width: 44.3rem;
 }
 
 li {
@@ -159,6 +160,9 @@ li a::after {
     transition: width .5s ease 0s, right .5s ease 0s;
     width: 0;
 }
+
+
+/* --------not-only------------ */
 
 .not-only {
     background-image: url('../../assets/images/start-screen-gradient-background.png'), url('../../assets/images/start-screen-background.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
@@ -536,14 +540,19 @@ li a::after {
     width: 14.3rem;
 }
 
+
+/* ----in-addition-------- */
+
 .in-addition {
+    max-width: 128rem;
+    margin: auto;
     height: 46.2rem;
     background: #F6F6F6;
     display: flex;
     justify-content: center;
 }
 
-.in-addition__wrap {
+.in-addition-wrap {
     height: 28.2rem;
     width: 91.5rem;
     margin-top: 8rem;
@@ -551,14 +560,14 @@ li a::after {
     display: flex;
 }
 
-.in-addition__wrap_img {
+.in-addition__img {
     margin-top: 1.1rem;
     height: 26.1rem;
     width: 50.5rem;
     margin-right: 3rem;
 }
 
-.in-addition__wrap_content {
+.in-addition__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -567,7 +576,7 @@ li a::after {
     width: 38rem;
 }
 
-.in-addition__wrap_content-heading {
+.content-heading {
     height: 9rem;
     width: 30rem;
     font-size: 3.5rem;
@@ -576,7 +585,7 @@ li a::after {
     color: #545454;
 }
 
-.in-addition__wrap_content-subheading {
+.content-subheading {
     height: 1.7rem;
     width: 30.7rem;
     font-size: 1.5rem;
@@ -585,7 +594,7 @@ li a::after {
     color: #545454;
 }
 
-.in-addition__wrap_content-card {
+.content-card {
     height: 4.3rem;
     width: 34.9rem;
     display: flex;
@@ -597,16 +606,16 @@ li a::after {
     border-radius: .9rem
 }
 
-.in-addition__wrap_content-card:hover {
+.content-card:hover {
     background: #FDDCC4;
 }
 
-.in-addition__wrap_content-card-img {
+.content-card-img {
     height: 2.3rem;
     width: 3rem;
 }
 
-.in-addition__wrap_content-card-num {
+.content-card-num {
     width: 27.4rem;
     height: 2.3rem;
     font-size: 2rem;
@@ -615,7 +624,7 @@ li a::after {
     color: #545454;
 }
 
-.in-addition__wrap_content-info {
+.content-info {
     height: 7.2rem;
     width: 38rem;
     font-family: 'Arial';
@@ -624,6 +633,9 @@ li a::after {
     line-height: 1.5;
     color: #B2B2B2;
 }
+
+
+/* ---footer--- */
 
 footer {
     max-width: 128rem;
@@ -651,7 +663,7 @@ footer {
     justify-content: space-between;
 }
 
-.footer-content__contacts_title {
+.contacts-title {
     height: 9rem;
     width: 27.8rem;
     font-size: 3.5rem;
@@ -660,23 +672,19 @@ footer {
     color: #fff;
 }
 
-.footer-content__contacts_mail {
+.contacts-mail {
     height: 3.2rem;
     width: 25.1rem;
     display: flex;
     flex-direction: row;
 }
 
-.footer-content__contacts_mail-ico {
+.mail-ico {
     width: 4rem;
     margin-right: 2rem;
 }
 
-.footer-content__contacts_mail-ico img:hover {
-    fill: #c05a11;
-}
-
-.footer-content__contacts_mail-text {
+.mail-text {
     height: 2.3rem;
     width: 19.1rem;
     font-size: 2rem;
@@ -685,20 +693,20 @@ footer {
     color: #F1CDB3;
 }
 
-.footer-content__contacts_phone {
+.contacts-phone {
     height: 3.2rem;
     width: 23.9rem;
     display: flex;
     flex-direction: row;
 }
 
-.footer-content__contacts_phone-ico img {
+.phone-ico img {
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
 }
 
-.footer-content__contacts_phone-num {
+.phone-num {
     height: 2.3rem;
     width: 17.9rem;
     font-size: 2rem;
@@ -717,7 +725,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.footer-content__address_title {
+.address-title {
     height: 9rem;
     width: 27rem;
     font-size: 3.5rem;
@@ -727,26 +735,12 @@ footer {
     padding-bottom: 3.4rem;
 }
 
-.footer-content__address_boston {
-    width: 30.2rem;
-    height: 4.6rem;
-    /* margin-bottom: 3.2rem; */
-    display: flex;
-}
-
-.footer-content__address_london-ico,
-.footer-content__address_boston-ico {
+.ico-city {
     width: 2.2rem;
-    height: 3.2rem;
     margin-right: 2rem;
 }
 
-.footer-content__address_boston-ico {
-    margin-top: 0.7rem;
-}
-
-.footer-content__address_boston-text {
-    height: 4.6rem;
+.city-text {
     width: 26rem;
     font-size: 2rem;
     line-height: 1.15;
@@ -754,21 +748,11 @@ footer {
     color: #F1CDB3;
 }
 
-.footer-content__address_london {
+.address-city {
     width: 30.2rem;
-    height: 3.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.footer-content__address_london-text {
-    height: 2.3rem;
-    width: 26rem;
-    font-size: 2rem;
-    line-height: 1.15;
-    letter-spacing: 0.06rem;
-    color: #F1CDB3;
 }
 
 .footer-content__img {
@@ -776,10 +760,9 @@ footer {
     width: 30rem;
 }
 
-.footer-content__address_london-text :hover,
-.footer-content__address_boston-text :hover,
-.footer-content__contacts_phone-num:hover,
-.footer-content__contacts_mail-text:hover {
+.city-text :hover,
+.phone-num:hover,
+.mail-text:hover {
     color: #c05a11;
     /* color: #FDDCC4; */
     ;

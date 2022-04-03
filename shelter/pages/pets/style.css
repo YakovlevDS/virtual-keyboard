@@ -63,21 +63,21 @@ input {
 h1,
 h2,
 h3,
-h4 h5,
-h5 {
+h4,
+h5,
+h6,
+p {
     padding: 0;
     margin: 0;
 }
 
-.wrap_bg {
-    max-width: 128rem;
-    margin: auto;
-}
+
+/* ------------header---------- */
 
 header,
-.header-wrap,
+.wrap,
 .header__logo,
-.header_menu ul {
+.header__menu ul {
     display: flex;
     align-items: center;
     background: #fff;
@@ -93,7 +93,7 @@ header {
     margin: auto;
 }
 
-.header-wrap {
+.wrap {
     width: 128rem;
     justify-content: space-between;
     align-items: center;
@@ -106,17 +106,16 @@ header {
     width: 18.4rem;
 }
 
-.header__logo_title {
+.logo-title {
     width: 18.4rem;
     height: 3.5rem;
-    /* font-family: 'Georgia'; */
     font-size: 3.2rem;
     line-height: 1.1;
     margin-bottom: 1rem;
     color: #545454;
 }
 
-.header__logo_subtitle {
+.logo-subtitle {
     width: 17.9rem;
     height: 1.5rem;
     font-family: 'Arial';
@@ -126,10 +125,6 @@ header {
     align-items: center;
     letter-spacing: 0.1rem;
     color: #292929
-}
-
-.header__menu {
-    width: 44.3rem;
 }
 
 li {
@@ -170,11 +165,16 @@ li a::after {
     width: 0;
 }
 
+
+/* ------------------our-friends---------- */
+
 .our-friends {
     /* height: 134.2rem; */
     background: #F6F6F6;
     position: relative;
     padding-top: 12rem;
+    max-width: 128rem;
+    margin: auto;
 }
 
 .our-friends__container {
@@ -333,6 +333,9 @@ li a::after {
     width: 1.3rem;
 }
 
+
+/* ---footer--- */
+
 footer {
     max-width: 128rem;
     margin: auto;
@@ -359,7 +362,7 @@ footer {
     justify-content: space-between;
 }
 
-.footer-content__contacts_title {
+.contacts-title {
     height: 9rem;
     width: 27.8rem;
     font-size: 3.5rem;
@@ -368,24 +371,19 @@ footer {
     color: #fff;
 }
 
-.footer-content__contacts_mail {
+.contacts-mail {
     height: 3.2rem;
     width: 25.1rem;
     display: flex;
     flex-direction: row;
 }
 
-.footer-content__contacts_mail-ico {
+.mail-ico {
     width: 4rem;
     margin-right: 2rem;
 }
 
-
-/* .footer-content__contacts_mail-ico img:hover {
-    fill: #c05a11;
-} */
-
-.footer-content__contacts_mail-text {
+.mail-text {
     height: 2.3rem;
     width: 19.1rem;
     font-size: 2rem;
@@ -394,20 +392,20 @@ footer {
     color: #F1CDB3;
 }
 
-.footer-content__contacts_phone {
+.contacts-phone {
     height: 3.2rem;
     width: 23.9rem;
     display: flex;
     flex-direction: row;
 }
 
-.footer-content__contacts_phone-ico img {
+.phone-ico img {
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
 }
 
-.footer-content__contacts_phone-num {
+.phone-num {
     height: 2.3rem;
     width: 17.9rem;
     font-size: 2rem;
@@ -426,7 +424,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.footer-content__address_title {
+.address-title {
     height: 9rem;
     width: 27rem;
     font-size: 3.5rem;
@@ -436,26 +434,12 @@ footer {
     padding-bottom: 3.4rem;
 }
 
-.footer-content__address_boston {
-    width: 30.2rem;
-    height: 4.6rem;
-    /* margin-bottom: 3.2rem; */
-    display: flex;
-}
-
-.footer-content__address_london-ico,
-.footer-content__address_boston-ico {
+.ico-city {
     width: 2.2rem;
-    height: 3.2rem;
     margin-right: 2rem;
 }
 
-.footer-content__address_boston-ico {
-    margin-top: 0.7rem;
-}
-
-.footer-content__address_boston-text {
-    height: 4.6rem;
+.city-text {
     width: 26rem;
     font-size: 2rem;
     line-height: 1.15;
@@ -463,21 +447,11 @@ footer {
     color: #F1CDB3;
 }
 
-.footer-content__address_london {
+.address-city {
     width: 30.2rem;
-    height: 3.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.footer-content__address_london-text {
-    height: 2.3rem;
-    width: 26rem;
-    font-size: 2rem;
-    line-height: 1.15;
-    letter-spacing: 0.06rem;
-    color: #F1CDB3;
 }
 
 .footer-content__img {
@@ -485,10 +459,9 @@ footer {
     width: 30rem;
 }
 
-.footer-content__address_london-text :hover,
-.footer-content__address_boston-text :hover,
-.footer-content__contacts_phone-num:hover,
-.footer-content__contacts_mail-text:hover {
+.city-text :hover,
+.phone-num:hover,
+.mail-text:hover {
     color: #c05a11;
     /* color: #FDDCC4; */
     ;
