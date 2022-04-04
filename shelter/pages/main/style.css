@@ -91,10 +91,12 @@ header {
 
 .wrap {
     width: 128rem;
+    height: 12rem;
     justify-content: space-between;
     align-items: center;
     padding-top: 6rem;
     padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .header__logo {
@@ -109,7 +111,8 @@ header {
     line-height: 1.1;
     margin-bottom: 1rem;
     font-weight: 400;
-    color: #F1CDB3
+    color: #F1CDB3;
+    letter-spacing: 0.17rem;
 }
 
 .logo__subtitle {
@@ -120,7 +123,12 @@ header {
     line-height: 1.5rem;
     display: flex;
     align-items: center;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.12rem;
+}
+
+.header__menu ul {
+    padding-bottom: 0.3rem;
+    padding-right: 0.2rem;
 }
 
 li {
@@ -129,8 +137,11 @@ li {
     font-size: 1.5rem;
     line-height: 1.6;
     color: #cdcdcd;
-    margin-right: 3.5rem;
     position: relative;
+}
+
+li:not(:last-child) {
+    margin-right: 3.5rem;
 }
 
 .active,
@@ -173,9 +184,10 @@ li a::after {
 
 .not-only-wrap {
     display: flex;
-    height: 78.2rem;
-    padding-top: 6.9rem;
+    height: 78.8rem;
+    padding-top: 6rem;
     padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .not-only__content {
@@ -238,9 +250,8 @@ li a::after {
 }
 
 .about-container {
-    height: 40.8rem;
-    padding-top: 8rem;
-    padding-bottom: 10rem;
+    height: 58.8rem;
+    padding: 8rem 4rem 10rem 4rem;
     display: flex;
 }
 
@@ -266,7 +277,7 @@ li a::after {
     height: 9rem;
     font-size: 3.5rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #545454;
     font-weight: normal;
 }
@@ -292,7 +303,6 @@ li a::after {
     height: 87.7rem;
     margin: auto;
     background: #F6F6F6;
-    position: relative;
 }
 
 .our-friends-container {
@@ -302,31 +312,34 @@ li a::after {
 }
 
 .our-friends__heading {
-    margin: 8rem 44rem 6rem 44rem;
-    width: 40rem;
-    height: 9rem;
+    padding: 8rem 44rem 6rem 44rem;
+    height: 23rem;
     font-size: 3.5rem;
     line-height: 1.3;
     display: flex;
     align-items: center;
     text-align: center;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #545454;
     font-weight: normal;
 }
 
 .our-friends__slider {
+    width: 120rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    position: relative;
 }
 
 .slider-wrap {
-    width: 120rem;
+    max-width: 120rem;
     height: 43.5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    margin-right: 10.5rem;
+    margin-left: 10.5rem;
 }
 
 .slider-card {
@@ -335,7 +348,6 @@ li a::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
@@ -414,7 +426,7 @@ li a::after {
 .arrow-right,
 .arrow-left {
     position: absolute;
-    top: 42.8rem;
+    top: 19.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -439,11 +451,11 @@ li a::after {
 }
 
 .arrow-left {
-    left: 1.5rem;
+    left: -0.3rem;
 }
 
 .arrow-right {
-    right: 1.5rem;
+    right: -0.3rem;
 }
 
 
@@ -453,28 +465,29 @@ li a::after {
     max-width: 128rem;
     margin: auto;
     height: 61.1rem;
-    padding-top: 10rem;
     display: flex;
     justify-content: center;
 }
 
 .help-wrap {
-    margin-top: 8rem;
-    margin-bottom: 10rem;
-    height: 43.1em;
+    width: 120rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 8rem;
+    margin-right: 4rem;
+    margin-bottom: 10rem;
+    margin-left: 4rem;
+    ;
 }
 
 .help__heading {
-    width: 30.8rem;
-    height: 9rem;
+    /* height: 9rem; */
     font-size: 3.5rem;
     line-height: 1.3;
     text-align: center;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #545454;
     font-weight: normal;
 }
@@ -482,23 +495,28 @@ li a::after {
 .help__list {
     display: flex;
     width: 102.6rem;
-    height: 28.1rem;
-    margin-top: 6rem;
-    margin-bottom: 10rem;
-    justify-content: center;
+    height: 11.3rem;
     align-items: center;
-    flex-wrap: wrap;
     align-content: center;
+}
+
+.space-beetwen {
+    justify-content: space-between;
+}
+
+.center {
+    padding-left: 8.4rem;
+    padding-right: 8.4rem;
     column-gap: 12rem;
-    row-gap: 5.5rem;
 }
 
 .list__card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     height: 11.3rem;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
 .list__img {
@@ -510,7 +528,7 @@ li a::after {
     height: 2.3rem;
     font-size: 2rem;
     line-height: 1.15;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.1rem;
     color: #545454;
 }
 
@@ -555,7 +573,7 @@ li a::after {
     width: 30rem;
     font-size: 3.5rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #545454;
     font-weight: normal;
 }
@@ -565,7 +583,7 @@ li a::after {
     width: 30.7rem;
     font-size: 1.5rem;
     line-height: 1.1;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.08rem;
     color: #545454;
 }
 
@@ -576,7 +594,6 @@ li a::after {
     justify-content: space-around;
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
     background: #F1CDB3;
     border-radius: .9rem
 }
@@ -586,6 +603,10 @@ li a::after {
 }
 
 .card__img {
+    padding: 1rem 1.5rem;
+}
+
+.card__img img {
     height: 2.3rem;
     width: 3rem;
 }
@@ -595,8 +616,9 @@ li a::after {
     height: 2.3rem;
     font-size: 2rem;
     line-height: 1.15;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.10rem;
     color: #545454;
+    /* padding: 1rem 1.5rem; */
 }
 
 .content__info {
@@ -607,6 +629,7 @@ li a::after {
     font-size: 1.2rem;
     line-height: 1.5;
     color: #B2B2B2;
+    letter-spacing: 0.2rem;
 }
 
 
@@ -636,6 +659,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 1.2rem;
 }
 
 .contacts__title {
@@ -643,7 +667,7 @@ footer {
     width: 27.8rem;
     font-size: 3.5rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #fff;
     font-weight: normal;
 }
@@ -665,7 +689,7 @@ footer {
     width: 19.1rem;
     font-size: 2rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.11rem;
     color: #F1CDB3;
 }
 
@@ -687,7 +711,7 @@ footer {
     width: 17.9rem;
     font-size: 2rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.11rem;
     color: #F1CDB3;
 }
 
@@ -699,6 +723,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
 }
 
 .address__title {
@@ -706,7 +731,7 @@ footer {
     width: 27rem;
     font-size: 3.5rem;
     line-height: 1.3;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #fff;
     padding-bottom: 3.4rem;
     font-weight: normal;
@@ -721,7 +746,7 @@ footer {
     width: 26rem;
     font-size: 2rem;
     line-height: 1.15;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.11rem;
     color: #F1CDB3;
 }
 
