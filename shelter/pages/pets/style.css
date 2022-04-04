@@ -35,6 +35,7 @@ body {
     font-weight: normal;
     font-style: normal;
     color: #fff;
+    background: #F6F6F6;
 }
 
 html {
@@ -80,7 +81,7 @@ header,
 .header__menu ul {
     display: flex;
     align-items: center;
-    background: #fff;
+    background-color: #fff;
 }
 
 header {
@@ -229,17 +230,17 @@ li a::after {
     flex-direction: column;
     align-items: center;
     background: #fafafa;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(13, 13, 13, 0.04);
     transition: 0.3s;
 }
 
 .cards__card:hover {
     cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background: #fefefe;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .cards__card:hover .card__btn {
-    /* background: #F1CDB3; */
     background: #FDDCC4;
 }
 
@@ -319,6 +320,16 @@ li a::after {
     border: .2rem solid #CDCDCD;
 }
 
+.pagination__btn span {
+    display: block;
+    height: 2.3rem;
+    font-family: 'Georgia';
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: 0.06rem;
+    color: #CDCDCD;
+}
+
 .pagination__btn:not([disabled]) {
     border: .2rem solid #F1CDB3;
 }
@@ -328,23 +339,17 @@ li a::after {
     color: #292929;
 }
 
-.pagination__btn:active,
-.pagination__btn:hover span {
-    color: #292929;
+.pagination__btn[disabled]:hover {
+    cursor: not-allowed;
 }
+
+
+/* .pagination__btn:active {
+    color: #292929;
+} */
 
 .pagination__btn img {
     height: 2.3rem;
-}
-
-.pagination__btn span {
-    display: block;
-    height: 2.3rem;
-    font-family: 'Georgia';
-    font-size: 2rem;
-    line-height: 1.15;
-    letter-spacing: 0.06rem;
-    color: #292929;
 }
 
 .max {
