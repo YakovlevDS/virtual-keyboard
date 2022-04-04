@@ -106,7 +106,7 @@ header {
     width: 18.4rem;
 }
 
-.logo-title {
+.logo__title {
     width: 18.4rem;
     height: 3.5rem;
     font-size: 3.2rem;
@@ -116,7 +116,7 @@ header {
     font-weight: 400;
 }
 
-.logo-subtitle {
+.logo__subtitle {
     width: 17.9rem;
     height: 1.5rem;
     font-family: 'Arial';
@@ -185,7 +185,7 @@ li a::after {
     justify-content: center;
 }
 
-.our-friends__header {
+.our-friends__heading {
     margin: 8rem 44rem 4.5rem 44rem;
     width: 40rem;
     height: 9rem;
@@ -204,7 +204,7 @@ li a::after {
     flex-direction: column;
 }
 
-.our-friends__cards {
+.cards {
     width: 120rem;
     height: 93rem;
     display: flex;
@@ -213,7 +213,7 @@ li a::after {
     flex-wrap: wrap;
 }
 
-.our-friends__cards_card {
+.cards__card {
     height: 43.5rem;
     width: 27rem;
     display: flex;
@@ -224,28 +224,24 @@ li a::after {
     transition: 0.3s;
 }
 
-.our-friends__cards_card:hover {
+.cards__card:hover {
     cursor: pointer;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.our-friends__cards_card:hover .our-friends__cards_card-btn {
+.cards__card:hover .card__btn {
     /* background: #F1CDB3; */
     background: #FDDCC4;
 }
 
-.our-friends__cards_card-btn:hover {
-    background: #f16b0a;
-}
-
-.our-friends__cards_card-img {
+.card__img {
     margin-bottom: 3rem;
     height: 27rem;
     width: 27rem;
     border-radius: 9px 9px 0px 0px;
 }
 
-.our-friends__cards_card-btn {
+.card__btn {
     margin-bottom: 3rem;
     border: 2px solid #F1CDB3;
     border-radius: 10rem;
@@ -259,7 +255,7 @@ li a::after {
     height: 5.2rem;
 }
 
-.our-friends__cards_card-text {
+.card__text {
     width: 7.4rem;
     height: 2.3rem;
     font-size: 2rem;
@@ -270,7 +266,7 @@ li a::after {
     margin-bottom: 3rem;
 }
 
-.our-friends_btn {
+.our-friends__btn {
     align-self: center;
     align-items: center;
     padding: 1.5rem 4.5rem;
@@ -286,6 +282,9 @@ li a::after {
     margin-top: 6rem;
     margin-bottom: 10rem;
 }
+
+
+/* --------------pagination------ */
 
 .pagination {
     width: 34rem;
@@ -376,7 +375,7 @@ footer {
     justify-content: space-between;
 }
 
-.contacts-title {
+.contacts__title {
     height: 9rem;
     width: 27.8rem;
     font-size: 3.5rem;
@@ -386,19 +385,19 @@ footer {
     font-weight: normal;
 }
 
-.contacts-mail {
+.contacts__mail {
     height: 3.2rem;
     width: 25.1rem;
     display: flex;
     flex-direction: row;
 }
 
-.mail-ico {
+.mail__ico {
     width: 4rem;
     margin-right: 2rem;
 }
 
-.mail-text {
+.mail__text {
     height: 2.3rem;
     width: 19.1rem;
     font-size: 2rem;
@@ -407,20 +406,20 @@ footer {
     color: #F1CDB3;
 }
 
-.contacts-phone {
+.contacts__phone {
     height: 3.2rem;
     width: 23.9rem;
     display: flex;
     flex-direction: row;
 }
 
-.phone-ico img {
+.phone__ico img {
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
 }
 
-.phone-num {
+.phone__num {
     height: 2.3rem;
     width: 17.9rem;
     font-size: 2rem;
@@ -439,7 +438,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.address-title {
+.address__title {
     height: 9rem;
     width: 27rem;
     font-size: 3.5rem;
@@ -450,12 +449,12 @@ footer {
     font-weight: normal;
 }
 
-.ico-city {
+.city__ico {
     width: 2.2rem;
     margin-right: 2rem;
 }
 
-.city-text {
+.city__text {
     width: 26rem;
     font-size: 2rem;
     line-height: 1.15;
@@ -463,7 +462,7 @@ footer {
     color: #F1CDB3;
 }
 
-.address-city {
+.address__city {
     width: 30.2rem;
     display: flex;
     align-items: center;
@@ -475,10 +474,9 @@ footer {
     width: 30rem;
 }
 
-.city-text :hover,
-.phone-num:hover,
-.mail-text:hover {
+.phone__num:hover,
+.city__text a:hover,
+.mail__text:hover {
     color: #c05a11;
-    /* color: #FDDCC4; */
-    ;
+    /* color: #FDDCC4; НЕ ВИДНО ПОЧТИ ПЕРЕПАДА ЦВЕТА*/
 }

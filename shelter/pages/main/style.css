@@ -102,7 +102,7 @@ header {
     width: 18.4rem;
 }
 
-.logo-title {
+.logo__title {
     width: 18.4rem;
     height: 3.5rem;
     font-size: 3.2rem;
@@ -112,7 +112,7 @@ header {
     color: #F1CDB3
 }
 
-.logo-subtitle {
+.logo__subtitle {
     width: 17.9rem;
     height: 1.5rem;
     font-family: 'Arial';
@@ -186,7 +186,7 @@ li a::after {
     margin-top: 16.3rem;
 }
 
-.not-content-heading {
+.content__text {
     width: 31rem;
     height: 11.4rem;
     font-size: 4.4rem;
@@ -195,7 +195,7 @@ li a::after {
     font-weight: normal;
 }
 
-.not-content-subheading {
+.content__subtext {
     width: 46rem;
     height: 7.2rem;
     font-family: 'Arial';
@@ -205,7 +205,7 @@ li a::after {
     color: #CDCDCD;
 }
 
-.not-content-btn {
+.content__btn {
     padding: 1.5rem 4.5rem;
     width: 20.7rem;
     height: 5.2rem;
@@ -217,11 +217,11 @@ li a::after {
     color: #292929;
 }
 
-.content-btn:hover {
+.content__btn:hover {
     background: #FDDCC4;
 }
 
-.start-screen__img {
+.not-only__img {
     width: 69.8rem;
     height: 72.8rem;
 }
@@ -261,7 +261,7 @@ li a::after {
     flex-direction: column;
 }
 
-.about__content-header {
+.content__heading {
     width: 37rem;
     height: 9rem;
     font-size: 3.5rem;
@@ -271,7 +271,7 @@ li a::after {
     font-weight: normal;
 }
 
-.about__content-subheading {
+.content__subheading {
     width: 43rem;
     font-family: 'Arial';
     font-size: 1.5rem;
@@ -279,8 +279,8 @@ li a::after {
     color: #4C4C4C;
 }
 
-.about__content-header,
-.about__content-subheading {
+.content__heading,
+.content__subheading {
     margin-bottom: 2.5rem;
 }
 
@@ -301,7 +301,7 @@ li a::after {
     align-items: center;
 }
 
-.our-friends__header {
+.our-friends__heading {
     margin: 8rem 44rem 6rem 44rem;
     width: 40rem;
     height: 9rem;
@@ -320,7 +320,7 @@ li a::after {
     flex-direction: column;
 }
 
-.slider-cards {
+.slider-wrap {
     width: 120rem;
     height: 43.5rem;
     display: flex;
@@ -336,26 +336,29 @@ li a::after {
     flex-direction: column;
     align-items: center;
     margin-bottom: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }
 
 .slider-card:hover {
     cursor: pointer;
     background: rgb(236, 233, 233);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.slider-card:hover .slider-card-btn {
+.slider-card:hover .slider-card__btn {
     /* background: #F1CDB3; */
     background: #FDDCC4;
 }
 
-.slider-card-img {
+.slider-card__img {
     margin-bottom: 3rem;
     height: 27rem;
     width: 27rem;
     border-radius: 9px 9px 0px 0px;
 }
 
-.slider-card-btn {
+.slider-card__btn {
     margin-bottom: 3rem;
     border: 2px solid #F1CDB3;
     border-radius: 10rem;
@@ -369,11 +372,11 @@ li a::after {
     background: #fff;
 }
 
-.slider-card-btn:hover {
+.slider-card__btn:hover {
     background: #f16b0a;
 }
 
-.slider-card-text {
+.slider-card__text {
     width: 7.4rem;
     height: 2.3rem;
     font-size: 2rem;
@@ -404,6 +407,9 @@ li a::after {
 .our-friends__btn:hover {
     background: #FDDCC4
 }
+
+
+/* ----------arrows .our-friends---------- */
 
 .arrow-right,
 .arrow-left {
@@ -487,7 +493,7 @@ li a::after {
     row-gap: 5.5rem;
 }
 
-.list-card {
+.list__card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -495,12 +501,12 @@ li a::after {
     height: 11.3rem;
 }
 
-.list-img {
+.list__img {
     width: 6rem;
     height: 6rem;
 }
 
-.list-text {
+.list__text {
     height: 2.3rem;
     font-size: 2rem;
     line-height: 1.15;
@@ -544,7 +550,7 @@ li a::after {
     width: 38rem;
 }
 
-.content-heading {
+.content__title {
     height: 9rem;
     width: 30rem;
     font-size: 3.5rem;
@@ -554,7 +560,7 @@ li a::after {
     font-weight: normal;
 }
 
-.content-subheading {
+.content__subtitle {
     height: 1.7rem;
     width: 30.7rem;
     font-size: 1.5rem;
@@ -563,7 +569,7 @@ li a::after {
     color: #545454;
 }
 
-.content-card {
+.content__card {
     height: 4.3rem;
     width: 34.9rem;
     display: flex;
@@ -575,16 +581,16 @@ li a::after {
     border-radius: .9rem
 }
 
-.content-card:hover {
+.content__card:hover {
     background: #FDDCC4;
 }
 
-.content-card-img {
+.card__img {
     height: 2.3rem;
     width: 3rem;
 }
 
-.content-card-num {
+.card__num {
     width: 27.4rem;
     height: 2.3rem;
     font-size: 2rem;
@@ -593,7 +599,7 @@ li a::after {
     color: #545454;
 }
 
-.content-info {
+.content__info {
     height: 7.2rem;
     width: 38rem;
     font-family: 'Arial';
@@ -632,7 +638,7 @@ footer {
     justify-content: space-between;
 }
 
-.contacts-title {
+.contacts__title {
     height: 9rem;
     width: 27.8rem;
     font-size: 3.5rem;
@@ -642,19 +648,19 @@ footer {
     font-weight: normal;
 }
 
-.contacts-mail {
+.contacts__mail {
     height: 3.2rem;
     width: 25.1rem;
     display: flex;
     flex-direction: row;
 }
 
-.mail-ico {
+.mail__ico {
     width: 4rem;
     margin-right: 2rem;
 }
 
-.mail-text {
+.mail__text {
     height: 2.3rem;
     width: 19.1rem;
     font-size: 2rem;
@@ -663,20 +669,20 @@ footer {
     color: #F1CDB3;
 }
 
-.contacts-phone {
+.contacts__phone {
     height: 3.2rem;
     width: 23.9rem;
     display: flex;
     flex-direction: row;
 }
 
-.phone-ico img {
+.phone__ico img {
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
 }
 
-.phone-num {
+.phone__num {
     height: 2.3rem;
     width: 17.9rem;
     font-size: 2rem;
@@ -695,7 +701,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.address-title {
+.address__title {
     height: 9rem;
     width: 27rem;
     font-size: 3.5rem;
@@ -706,12 +712,12 @@ footer {
     font-weight: normal;
 }
 
-.ico-city {
+.city__ico {
     width: 2.2rem;
     margin-right: 2rem;
 }
 
-.city-text {
+.city__text {
     width: 26rem;
     font-size: 2rem;
     line-height: 1.15;
@@ -719,7 +725,7 @@ footer {
     color: #F1CDB3;
 }
 
-.address-city {
+.address__city {
     width: 30.2rem;
     display: flex;
     align-items: center;
@@ -731,10 +737,9 @@ footer {
     width: 30rem;
 }
 
-.city-text :hover,
-.phone-num:hover,
-.mail-text:hover {
+.phone__num:hover,
+.city__text a:hover,
+.mail__text:hover {
     color: #c05a11;
-    /* color: #FDDCC4; */
-    ;
+    /* color: #FDDCC4; НЕ ВИДНО ПОЧТИ ПЕРЕПАДА ЦВЕТА*/
 }
