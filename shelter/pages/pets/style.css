@@ -130,6 +130,43 @@ header {
     color: #292929
 }
 
+.header__burger {
+    display: none;
+    position: relative;
+    width: 3rem;
+    height: 2.4rem;
+    overflow: hidden;
+}
+
+.burger-line,
+.burger-line:after,
+.burger-line:before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 3rem;
+    height: 0;
+    border: .2rem solid #000;
+    background: #000;
+}
+
+.burger-line:after,
+.burger-line:before {
+    content: "";
+}
+
+.burger-line {
+    top: 1.1rem;
+}
+
+.burger-line:before {
+    bottom: .75rem;
+}
+
+.burger-line:after {
+    top: .75rem;
+}
+
 .header__menu ul {
     padding-bottom: 0.3rem;
     padding-right: 0.2rem;
