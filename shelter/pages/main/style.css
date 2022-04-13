@@ -76,16 +76,7 @@ p {
 }
 
 
-/* ------------header---------- */
-
-.header,
-.wrap,
-.header__logo,
-.header__menu ul {
-    display: flex;
-    align-items: center;
-    background: transparent;
-}
+/* --------bg------------ */
 
 .bg {
     position: absolute;
@@ -96,6 +87,18 @@ p {
     height: 90.8rem;
     width: 128rem;
     z-index: 1;
+}
+
+
+/* ------------header---------- */
+
+.header,
+.wrap,
+.header__logo,
+.header__menu ul {
+    display: flex;
+    align-items: center;
+    background: transparent;
 }
 
 header {
@@ -266,6 +269,26 @@ li a::after {
     }
     .header__burger {
         display: inline-block;
+    }
+}
+
+
+/* --------burger-menu------------ */
+
+.burger-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #292929;
+    background-color: #cc1a1a;
+    z-index: 30;
+}
+
+@media screen and (max-width: 767px) {
+    .burger-menu {
+        display: flex;
     }
 }
 
