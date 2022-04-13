@@ -1300,7 +1300,7 @@ li a::after {
     font-size: 1.2rem;
     line-height: 1.5;
     color: #B2B2B2;
-    letter-spacing: 0.2rem;
+    /* letter-spacing: 0.06rem; */
 }
 
 @media screen and (max-width: 1279px) {
