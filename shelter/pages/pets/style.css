@@ -126,7 +126,7 @@ header {
     line-height: 1.5rem;
     display: flex;
     align-items: center;
-    letter-spacing: 0.12rem;
+    letter-spacing: 0.126rem;
     color: #292929
 }
 
@@ -252,10 +252,9 @@ li a::after {
 /* ------------------our-friends---------- */
 
 .our-friends {
-    /* height: 134.2rem; */
     background: #F6F6F6;
     position: relative;
-    padding-top: 12rem;
+    padding-top: 13rem;
     max-width: 128rem;
     margin: auto;
 }
@@ -268,15 +267,15 @@ li a::after {
 }
 
 .our-friends__heading {
-    margin: 8rem 44rem 4.5rem 44rem;
+    margin: 6rem 44rem 4.5rem 44rem;
     width: 40rem;
-    height: 9rem;
+    height: 12rem;
     font-size: 3.5rem;
     line-height: 1.3;
     display: flex;
     align-items: center;
     text-align: center;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.2rem;
     color: #545454;
     font-weight: normal;
 }
@@ -288,12 +287,13 @@ li a::after {
 
 .cards {
     width: 120rem;
-    height: 93rem;
+    height: 90rem;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    /* justify-content: space-around;
+    align-items: center; */
     flex-wrap: wrap;
     row-gap: 3rem;
+    column-gap: 4rem;
 }
 
 .cards__card {
@@ -302,8 +302,8 @@ li a::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fafafa;
-    box-shadow: 0 4px 8px 0 rgba(13, 13, 13, 0.04);
+    background: #FAFAFA;
+    border-radius: 9px;
     transition: 0.3s;
 }
 
@@ -315,6 +315,7 @@ li a::after {
 
 .cards__card:hover .card__btn {
     background: #FDDCC4;
+    border: #FDDCC4;
 }
 
 .card__img {
@@ -357,7 +358,7 @@ li a::after {
     height: 5.2rem;
     display: flex;
     justify-content: space-between;
-    margin-top: 4.5rem;
+    margin-top: 5.5rem;
     margin-bottom: 10rem;
 }
 
@@ -416,13 +417,14 @@ li a::after {
         max-width: 76.8rem;
         height: 185.3rem;
         margin: auto;
+        padding-top: 12rem;
     }
     .our-friends__container {
         max-width: 76.8rem;
-        height: 185.3rem;
+        height: 173.3rem;
     }
     .our-friends__heading {
-        margin: 8rem 18.4rem 3rem 18.4rem;
+        margin: 0.5rem 17.4rem 4.5rem 17.4rem;
         letter-spacing: 0.2rem;
     }
     .our-friends__slider {
@@ -435,10 +437,11 @@ li a::after {
         height: 136.5rem;
         row-gap: 3rem;
         column-gap: 4rem;
+        margin-top: -3rem;
     }
     .pagination {
         margin-top: 4rem;
-        margin-bottom: 7.6rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -452,7 +455,7 @@ li a::after {
         height: 160.3rem;
     }
     .our-friends__heading {
-        margin: 4.2rem 1rem 4.2rem 1rem;
+        margin: 0rem 1rem 7rem 1rem;
         width: 30rem;
         height: 6.4rem;
         font-size: 2.5rem;
@@ -479,8 +482,8 @@ footer {
     max-width: 128rem;
     margin: auto;
     height: 35rem;
-    background-image: url('../../assets/images/footer-gradient-background.png'), url('../../assets/images/footer-background.png'), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), linear-gradient(0deg, #211f20, #211f20);
-    background-repeat: no-repeat;
+    background: url('../../assets/images/footer-gradient-background.png'), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+    background-size: cover;
 }
 
 .footer-content {
