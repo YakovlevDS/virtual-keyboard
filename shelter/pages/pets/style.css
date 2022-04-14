@@ -544,7 +544,7 @@ footer {
     flex-direction: row;
 }
 
-.phone__ico img {
+.phone__ico svg {
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
@@ -611,6 +611,27 @@ footer {
 .mail__text:hover {
     color: #c05a11;
     /* color: #FDDCC4; НЕ ВИДНО ПОЧТИ ПЕРЕПАДА ЦВЕТА*/
+}
+
+.mail,
+.phone {
+    width: 4rem;
+    height: 3.2rem;
+    fill: #F1CDB3;
+}
+
+.location {
+    width: 2.2rem;
+    height: 3.2rem;
+    fill: #F1CDB3;
+}
+
+.mail:hover,
+.phone:hover,
+.location:hover {
+    /* color: #FDDCC4; */
+    fill: #c05a11;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1279px) {
