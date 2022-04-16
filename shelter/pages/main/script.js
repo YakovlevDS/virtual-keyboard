@@ -87,67 +87,104 @@ const dataPets = [{
         "parasites": ["lice", "fleas"]
     }
 ]
-const petCards = document.querySelectorAll('.slider-card')
-const petPopup = document.querySelector('.popup-card')
-const overlayPopup = document.querySelector('.popup-overlay')
+
 const closePopupBtn = document.querySelector('.popup-card__close')
+const overlayPopup = document.querySelector('.popup-overlay')
+const petPopup = document.querySelector('.popup-card')
+const wrapPopup = document.querySelector('.wrap-popup')
     // ---------------
 const sliderWrap = document.querySelector('.slider-wrap')
-
-
-
-
-
-// console.log(close);
+const arrowRight = document.querySelector('.arrow-right')
+const arrowLeft = document.querySelector('.arrow-left')
 
 const idDataPets = () => dataPets.forEach((pet, ind) => pet.id = ind)
 idDataPets()
-console.table(dataPets);
 
+const showPetCard = (e) => {
+    const card = e.target.closest(".slider-card")
+    const key = +card.dataset.card
 
-
-const showPetCard = () => {
-    petPopup.classList.add('show')
+    petPopup.innerHTML = "";
+    renderPopup(dataPets[key])
+    wrapPopup.classList.add('show')
     overlayPopup.classList.add('show')
 }
+
 const closePopup = () => {
-    petPopup.classList.remove('show')
+    wrapPopup.classList.remove('show')
     overlayPopup.classList.remove('show')
 }
 
 
-// const closePopup = (e) => {
-//     console.log(e.target);
-//     const target = e.target
-//     if (!target.closest('.popup-card') || target.classList.contains('popup-card__close')) {
-//     petPopup.classList.remove('show')
-//     overlayPopup.classList.remove('show')
-// }
+const prevSlide = () => {
+    const last = dataPets[length - 1];
+    dataPets.unshift(last);
+    dataPets.slice(-1);
 
 
-const renderCard = ({ name, type, img }) => {
+
+
+    renderSlider()
+}
+
+const nextSlide = () => {
+    const fist = dataPets[0];
+    dataPets.push(fist)
+    dataPets.slice(1);
+    console.log(dataPets);
+
+    renderSlider()
+}
+
+
+const renderCard = ({ id, name, type, img }) => {
     const cardBlock = `
-    <div class="slider-card">
+    <div class="slider-card" data-card=${id}>
        <div class="slider-card__img">
            <img src=${img} alt=${type}>
        </div>
        <div class="slider-card__text">${name}</div>
        <button type="button" class="slider-card__btn">Learn more</button>
    </div> `
+
     sliderWrap.insertAdjacentHTML(
         "beforeend", cardBlock)
 }
-const renderCards = () => {
+
+const renderPopup = ({ name, type, img, breed, description, inoculations, diseases, parasites }) => {
+    const popupBlock = `
+    <div class="popup-card__img">
+        <img src=${img} alt=${type}>
+    </div>
+    <div class="popup-card__describe">
+        <h2 class="describe__heading">${name}</h2>
+        <p class="describe__subheading">${type} - ${breed}</p>
+        <p class="describe__text">${description}</p>
+        <ul class="describe__list">
+           <li class="describe__item"><span>Age:</span>&nbsp;${type}</li>
+           <li class="describe__item"><span>Inoculations:</span>&nbsp;${inoculations}</li>
+           <li class="describe__item"><span>Diseases:</span>&nbsp;${diseases}</li>
+           <li class="describe__item"><span>Parasites:</span>&nbsp;${parasites}</li>
+        </ul>
+    </div>
+    `
+
+    petPopup.insertAdjacentHTML("beforeend", popupBlock)
+}
+
+const renderSlider = () => {
     sliderWrap.innerHTML = "";
     dataPets.forEach(pet => renderCard(pet))
 }
-renderCards()
 
+renderSlider()
+const petCards = document.querySelectorAll('.slider-card')
 
+petCards.forEach(card => {
+    card.addEventListener("click", e => showPetCard(e))
+})
 
-// const renderPopupCard = () => {}
-
-
-petCards.forEach(card => card.addEventListener("click", showPetCard));
 overlayPopup.addEventListener("click", closePopup);
 closePopupBtn.addEventListener("click", closePopup);
+arrowRight.addEventListener("click", nextSlide);
+arrowLeft.addEventListener("click", prevSlide);
