@@ -148,6 +148,8 @@
         overflow: hidden;
     }
     
+    .burger-active {}
+    
     .burger-line,
     .burger-line:after,
     .burger-line:before {
@@ -644,6 +646,7 @@
         align-items: center;
         margin-right: 10.5rem;
         margin-left: 10.5rem;
+        overflow: hidden;
     }
     
     .slider-card {
@@ -655,6 +658,7 @@
         border-radius: 9px;
         background-color: #FAFAFA;
         transition: 0.3s;
+        row-gap: 6rem;
     }
     
     .slider-card:hover {
@@ -776,7 +780,7 @@
     .popup-card {
         background: #FAFAFA;
         /* background: #dd2d2d; */
-        display: flex;
+        /* display: flex; */
         display: none;
         width: 90rem;
         height: 50rem;
@@ -961,9 +965,6 @@
             font-size: 1.5rem;
             line-height: 1.15;
             letter-spacing: 0.2rem;
-        }
-        .show {
-            display: flex;
         }
         .popup-card__close {
             width: 5.2rem;
@@ -1749,9 +1750,12 @@
         }
     }
     /* ==========visability================== */
+    /* .show {
+        display: block;
+    } */
     
     .show {
-        display: block;
+        display: flex;
     }
     
     .hidden {
@@ -1761,3 +1765,7 @@
     .unhidden {
         z-index: 30;
     }
+    /* .disable {
+        cursor: default;
+        pointer-events: none;
+    } */
