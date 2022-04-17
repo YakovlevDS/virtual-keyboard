@@ -99,11 +99,44 @@ const arrowLeft = document.querySelector('.arrow-left')
 
 const addIdDataPets = () => dataPets.forEach((pet, ind) => pet.id = ind)
 addIdDataPets()
+const len = dataPets.length;
 
 const getRandom = (max, min = 0) => ~~(Math.random() * (max - min + 1)) + min;
 
-const len = dataPets.length;
-console.log('Value: ', getRandom(len));
+const getRandomArr = (n) => {
+    let arr = [getRandom(len)]
+    let val
+    while (arr.length < n) {
+        val = getRandom(len)
+            // for (let j = 0; j < arr.length; j++) {
+            //     if (val == !arr[j]) arr.push(val)
+            // }
+        arr.forEach(i => val == !i ? arr.push(val) : null)
+
+    }
+    return arr
+}
+
+
+console.log('Value: ', getRandomArr(2));
+const arrCurSlide = [];
+const arrPrevSlide = [];
+
+
+const getGroupSlide = () => {
+    let arr = dataPets
+    let fistInd = getRandom(len)
+    let secondInd = getRandom(len)
+    let thirdInd = getRandom(len)
+
+
+
+
+    arrCurSlide.push(dataPets[getRandom(len)])
+};
+
+
+// console.log('Value: ', getRandomArr(len));
 
 
 const showPetCard = (e) => {
