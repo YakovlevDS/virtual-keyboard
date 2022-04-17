@@ -97,8 +97,14 @@ const sliderWrap = document.querySelector('.slider-wrap')
 const arrowRight = document.querySelector('.arrow-right')
 const arrowLeft = document.querySelector('.arrow-left')
 
-const idDataPets = () => dataPets.forEach((pet, ind) => pet.id = ind)
-idDataPets()
+const addIdDataPets = () => dataPets.forEach((pet, ind) => pet.id = ind)
+addIdDataPets()
+
+const getRandom = (max, min = 0) => ~~(Math.random() * (max - min + 1)) + min;
+
+const len = dataPets.length;
+console.log('Value: ', getRandom(len));
+
 
 const showPetCard = (e) => {
     const card = e.target.closest(".slider-card")
