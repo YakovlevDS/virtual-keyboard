@@ -386,7 +386,8 @@ li a::after {
     font-size: 2rem;
     line-height: 1.15;
     letter-spacing: 0.06rem;
-    color: #CDCDCD;
+    color: #292929;
+    /* color: #CDCDCD; */
 }
 
 .pagination__btn:not([disabled]) {
