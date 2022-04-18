@@ -9,26 +9,48 @@
     <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <!-- <script src="../../dist/main.js" defer></script> -->
 </head>
 
 <body>
 
     <header class="header" id="header">
         <div class="bg"></div>
-        <div class="wrap">
+        <div class="wrap ">
             <div class="header__logo">
                 <h1 class="logo__title"><a href="#header">Cozy House</a></h1>
                 <p class="logo__subtitle">Shelter for pets in Boston</p>
             </div>
-            <div class="header__burger">
+            <div class="header__burger rotate">
                 <span class="burger-line"></span>
             </div>
-            <nav class="header__menu">
+            <div class="menu-overlay"></div>
+            <!-- <div class="burger-menu">
+                <div class="burger-menu__heading">
+                    <div class="header__logo">
+                        <h1 class="logo__title"><a href="#header">Cozy House</a></h1>
+                        <p class="logo__subtitle">Shelter for pets in Boston</p>
+                    </div>
+                    <div class="header__burger">
+                        <span class="burger-line"></span>
+                    </div>
+                    .</div>
+                <div class="burger-menu__list">
+                    <ul>
+                        <li><a href="#about" class="active">About the shelter</a></li>
+                        <li><a href="../pets/index.html">Our pets</a></li>
+                        <li><a href="#help">Help the shelter</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                    </ul>
+                </div>
+            </div> -->
+
+            <nav class="header__menu ">
                 <ul>
                     <li><a href="#about" class="active">About the shelter</a></li>
                     <li><a href="../pets/index.html">Our pets</a></li>
-                    <li><a href="#help">Help the shelter</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#help" class="disable">Help the shelter</a></li>
+                    <li><a href="#contacts" class="disable">Contacts</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,7 +59,7 @@
 
     <main>
 
-        <section class="not-only">
+        <section class="not-only hidden">
             <div class="not-only-wrap">
                 <div class="not-only__content">
                     <h2 class="content__text">
@@ -73,16 +95,16 @@
                     Our friends who <br>are looking for a house
                 </h3>
                 <div class="our-friends__slider">
-                    <button type="button" class="arrow-left">
+                    <button type="button" class="arrow-left arrow">
                                 <img src="../../assets/icons/Arrow.svg" alt="arrow-l">
                             </button>
-                    <button type="button" class="arrow-right">
+                    <button type="button" class="arrow-right arrow">
                                 <img src="../../assets/icons/Arrow-right.svg" alt="arrow-r">
                             </button>
                     <div class="slider-wrap">
 
 
-                        <div class="slider-card">
+                        <!-- <div class="slider-card">
                             <div class="slider-card__img">
                                 <img src='../../assets/images/pets-katrine.png' alt='cat-img'>
                             </div>
@@ -104,34 +126,34 @@
                             </div>
                             <div class="slider-card__text">Woody</div>
                             <button type=" button " class="slider-card__btn">Learn more</button>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
                 <a class="our-friends__btn" href="../pets/index.html"> Get to know the rest</a>
 
-                <div class="popup-overlay"></div>
-                <div class="popup-card">
-                    <div class="popup-card__img">
-                        <img src="../../assets/images/pets-charly.png" alt="pets-img">
+                <div class="popup-overlay close"></div>
+                <div class="wrap-popup">
+                    <div class="popup-card">
+                        <!-- <div class="popup-card__img">
+                            <img src="../../assets/images/pets-charly.png" alt="pets-img">
+                        </div>
+                        <div class="popup-card__describe">
+                            <h2 class="describe__heading">Jennifer</h2>
+                            <p class="describe__subheading">Dog - Labrador</p>
+                            <p class="describe__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all
+                                of her favorite toys.</p>
+                            <ul class="describe__list">
+                                <li class="describe__item"><span>Age:</span>&nbsp;2 months</li>
+                                <li class="describe__item"><span>Inoculations:</span>&nbsp;none</li>
+                                <li class="describe__item"><span>Diseases:</span>&nbsp;none</li>
+                                <li class="describe__item"><span>Parasites:</span>&nbsp;none</li>
+                            </ul>
+                        </div> -->
                     </div>
-                    <div class="popup-card__describe">
-                        <h2 class="describe__heading">Jennifer</h2>
-                        <p class="describe__subheading">Dog - Labrador</p>
-                        <p class="describe__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all
-                            of her favorite toys.</p>
-                        <ul class="describe__list">
-                            <li class="describe__item"><span>Age:</span>&nbsp;2 months</li>
-                            <li class="describe__item"><span>Inoculations:</span>&nbsp;none</li>
-                            <li class="describe__item"><span>Diseases:</span>&nbsp;none</li>
-                            <li class="describe__item"><span>Parasites:</span>&nbsp;none</li>
-                        </ul>
-
-                    </div>
-                    <div class="popup-card__close">
+                    <div class="popup-card__close close">
                         <img src="../../assets/images/close.svg" alt="close">
                     </div>
-
                 </div>
         </section>
 
@@ -234,13 +256,17 @@
                 <h3 class="contacts__title">For questions and suggestions</h3>
                 <div class="contacts__mail">
                     <div class="ico mail__ico">
-                        <img src="../../assets/icons/icon-email.svg" alt="img mail">
+                        <svg class="mail">
+                            <use xlink:href="../../assets/icons/sprite.svg#mail"></use>
+                        </svg>
                     </div>
                     <div class="mail__text"> <a href="mailto:email@shelter.com">email@shelter.com</a></div>
                 </div>
                 <div class="contacts__phone">
                     <div class="phone__ico ico">
-                        <img src="../../assets/icons/icon-phone.svg" alt="img phone">
+                        <svg class="phone">
+                            <use xlink:href="../../assets/icons/sprite.svg#phone"></use>
+                        </svg>
                     </div>
                     <div class="phone__num"><a href="tel: +13 674 567 75 54">+13 674 567 75 54</a></div>
                 </div>
@@ -250,13 +276,17 @@
                 <h3 class="address__title">We are waiting for your visit</h3>
                 <div class="address__city">
                     <div class="city__ico ico">
-                        <img src="../../assets/icons/icon-marker.svg" alt="img location">
+                        <svg class="location">
+                            <use xlink:href="../../assets/icons/sprite.svg#marker"></use>
+                        </svg>
                     </div>
                     <p class="city__text"><a target="_blank" href="https://www.google.com/maps/place/Boston+University/@42.3505036,-71.1075878,17z/data=!3m1!4b1!4m5!3m4!1s0x89e379f063e53817:0x2b346e00e0a3bec8!8m2!3d42.3504997!4d-71.1053991"> 1 Central Street, Boston &#40;entrance from the store&#41;</a></p>
                 </div>
                 <div class="address__city">
                     <div class="city__ico ico">
-                        <img src="../../assets/icons/icon-marker.svg" alt="img location">
+                        <svg class="location">
+                            <use xlink:href="../../assets/icons/sprite.svg#marker"></use>
+                        </svg>
                     </div>
                     <p class="city__text"><a target="_blank" href="https://www.google.com/maps/place/London,+UK/@51.5010952,-0.1526449,13z/data=!4m5!3m4!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862">18 South Park, London</a> </p>
                 </div>
