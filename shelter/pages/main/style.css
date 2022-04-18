@@ -1026,13 +1026,13 @@ li a::after {
 @media screen and (max-width: 767px) {
     .our-friends {
         width: 32rem;
-        height: 70.7rem;
+        height: 79.1rem;
     }
     .our-friends__heading {
         padding: 4.2rem 1rem 0rem 1rem;
         height: 10.8rem;
         font-size: 2.5rem;
-        letter-spacing: 0.21rem;
+        letter-spacing: 0.14rem;
     }
     .our-friends__slider {
         margin-top: 7.5rem;
