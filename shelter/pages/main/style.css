@@ -1560,6 +1560,7 @@ footer {
 }
 
 .phone__ico svg {
+    margin-top: -.5rem;
     width: 4rem;
     height: 3.2rem;
     margin-right: 2rem;
@@ -1697,6 +1698,9 @@ footer {
         margin-left: 20.4rem;
         height: 31rem;
         width: 30rem;
+    }
+    .phone__ico svg {
+        margin-top: 0rem;
     }
 }
 
