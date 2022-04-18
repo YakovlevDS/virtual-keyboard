@@ -1415,7 +1415,9 @@ li a::after {
         align-items: center;
     }
     .content__info {
-        letter-spacing: 0.06rem;
+        letter-spacing: 0.001rem;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -1480,8 +1482,6 @@ li a::after {
         letter-spacing: 0.09rem;
     }
     .content__info {
-        /* letter-spacing: 0.0002rem; */
-        letter-spacing: 0.06rem;
         display: flex;
         align-items: center;
         text-align: justify;
