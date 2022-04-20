@@ -100,7 +100,9 @@ const closePop = document.querySelectorAll('.close')
 const overlayPopup = document.querySelector('.popup-overlay')
 const petPopup = document.querySelector('.popup-card')
 const wrapPopup = document.querySelector('.wrap-popup')
-    // ---------------
+const body = document.body;
+
+// ---------------
 const sliderWrap = document.querySelector('.slider-wrap')
 const arrows = document.querySelectorAll('.arrow')
 
@@ -141,7 +143,7 @@ const getNextRandomArr = (prevArr, n = 3) => {
 const showPetCard = (e) => {
     const card = e.target.closest(".slider-card")
     const key = +card.dataset.card
-
+    body.style.overflow = 'hidden';
     petPopup.innerHTML = "";
     renderPopup(dataPets[key])
     wrapPopup.classList.add('show')
@@ -149,6 +151,7 @@ const showPetCard = (e) => {
 }
 
 const closePopup = () => {
+    body.style.overflow = '';
     wrapPopup.classList.remove('show')
     overlayPopup.classList.remove('show')
 }
@@ -195,6 +198,8 @@ const renderSlider = () => {
     sliderWrap.innerHTML = "";
     // startSlides.forEach(ind => renderCard(dataPets.filter(i => i.id === ind)[0]))
     startSlides.forEach(ind => renderCard(dataPets[ind]))
+
+
     petCards = document.querySelectorAll('.slider-card')
     petCards.forEach(i => i.addEventListener("click", e => showPetCard(e)))
 }

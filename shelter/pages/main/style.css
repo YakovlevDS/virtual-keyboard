@@ -41,9 +41,10 @@ body {
     background: #F6F6F6;
 }
 
-html {
+
+/* html {
     scroll-behavior: smooth;
-}
+} */
 
 img {
     width: 100%;
