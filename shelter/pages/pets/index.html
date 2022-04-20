@@ -8,7 +8,7 @@
     <title>Pets</title>
     <link rel="stylesheet" href="../main/normalize.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <!-- <script src="./script.js" defer></script> -->
 </head>
 
 <body>
@@ -111,20 +111,28 @@
                 </div>
 
                 <div class="pagination">
-                    <button type="button" class="pagination__btn " disabled data-disabled>
-                                <img class="max" src="../../assets/icons/max-left.svg" alt="max-left">
+                    <button type="button" class="pagination__btn first-page" disabled>
+                        <svg class="max">
+                            <use xlink:href="../../assets/icons/sprite.svg#max-left"></use>
+                        </svg>
                             </button>
-                    <button type="button" class="pagination__btn" disabled data-disabled>
-                                <img  class="min" src="../../assets/icons/left.svg" alt="left">
+                    <button type="button" class="pagination__btn prev-page" disabled>
+                        <svg class="min">
+                            <use xlink:href="../../assets/icons/sprite.svg#left"></use>
+                        </svg>
                             </button>
-                    <button type="button" class="pagination__btn">
+                    <button type="button" class="pagination__btn current-page">
                                 <span >1</span>
                             </button>
-                    <button type="button" class="pagination__btn">
-                                <img class="min" src="../../assets/icons/right.svg" alt="right">
+                    <button type="button" class="pagination__btn next-page">
+                        <svg class="min">
+                            <use xlink:href="../../assets/icons/sprite.svg#right"></use>
+                        </svg>
                             </button>
-                    <button type="button" class="pagination__btn">
-                                <img  class="max" src="../../assets/icons/max-right.svg" alt="max-right">
+                    <button type="button" class="pagination__btn last-page">
+                        <svg class="max">
+                            <use xlink:href="../../assets/icons/sprite.svg#max-right"></use>
+                        </svg>
                             </button>
                 </div>
         </section>

@@ -252,12 +252,13 @@ li a::after {
 /* ------------------our-friends---------- */
 
 .our-friends {
+    /* background: #7c2929; */
     background: #F6F6F6;
     position: relative;
-    padding-top: 13rem;
+    padding-top: 12rem;
     max-width: 128rem;
     margin: auto;
-    height: 134.2;
+    height: 146.2;
 }
 
 .our-friends__container {
@@ -265,7 +266,7 @@ li a::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 2.7rem;
+    padding-top: .7rem;
 }
 
 .our-friends__heading {
@@ -375,8 +376,8 @@ li a::after {
     align-items: center;
     text-align: center;
     background: #fff;
+    border: .2rem solid #F1CDB3;
     color: #CDCDCD;
-    border: .2rem solid #CDCDCD;
 }
 
 .pagination__btn span {
@@ -387,11 +388,15 @@ li a::after {
     line-height: 1.15;
     letter-spacing: 0.06rem;
     color: #292929;
-    /* color: #CDCDCD; */
 }
 
-.pagination__btn:not([disabled]) {
-    border: .2rem solid #F1CDB3;
+.current-page {
+    background: #F1CDB3;
+    padding-bottom: 0.3rem;
+}
+
+.pagination__btn[disabled] {
+    border: .2rem solid #CDCDCD;
 }
 
 .pagination__btn:not([disabled]):hover {
@@ -400,19 +405,25 @@ li a::after {
 }
 
 .pagination__btn[disabled]:hover {
-    cursor: not-allowed;
-}
-
-.pagination__btn img {
-    height: 2.3rem;
+    cursor: auto;
 }
 
 .max {
-    width: 2.7rem;
+    width: 2.5rem;
+    height: 1.1rem;
+}
+
+.pagination__btn[disabled] .max {
+    fill: #CDCDCD;
+}
+
+.pagination__btn[disabled] .min {
+    fill: #CDCDCD;
 }
 
 .min {
-    width: 1.3rem;
+    width: 1rem;
+    height: 1.1rem;
 }
 
 @media screen and (max-width: 1279px) {
@@ -425,6 +436,7 @@ li a::after {
     .our-friends__container {
         max-width: 76.8rem;
         height: 173.3rem;
+        padding-top: 2rem;
     }
     .our-friends__heading {
         margin: 0.5rem 17.4rem 4.5rem 17.4rem;
@@ -460,6 +472,7 @@ li a::after {
     }
     .our-friends__container {
         height: 160.3rem;
+        padding-top: 3rem;
     }
     .our-friends__heading {
         margin: 0rem 1rem 7rem 1rem;
