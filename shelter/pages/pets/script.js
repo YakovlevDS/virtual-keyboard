@@ -139,9 +139,9 @@ getListPets()
 
 let countPages = listPets.length / countCards
 
-const renderCard = ({ id, name, type, img }) => {
+const renderCard = ({ id, name, type, img }, dir = 'left') => {
     const cardBlock = `
-        <div class="cards__card" data-slide=${id}>
+        <div class="cards__card fade-in-${dir}" data-slide=${id}>
             <div class="card__img">
                <img src=${img} alt=${type}>
             </div>
@@ -199,12 +199,13 @@ closePop.forEach(i => i.addEventListener("click", closePopup))
 // ====================
 
 
-const displaySlide = (indexPage) => {
+const displaySlide = (indexPage, dir) => {
     let indexCard = countCards * (indexPage - 1)
     slideWrap.innerHTML = ''
     for (let i = 0; i < countCards; i++) {
-        renderCard(listPets[indexCard + i])
+        renderCard(listPets[indexCard + i], dir)
     }
+
     currentPage.textContent = indexPage
     if (indexPage === 1) {
         currentInd = 1
@@ -225,12 +226,13 @@ const displaySlide = (indexPage) => {
     }
 
     petCards = document.querySelectorAll('.cards__card')
-    console.log('Value: ', petCards);
 
     petCards.forEach(i => i.addEventListener("click", e => showPetCard(e)))
 }
 displaySlide(1)
-firstPageBtn.addEventListener("click", () => displaySlide(1))
-lastPageBtn.addEventListener("click", () => displaySlide(countPages))
-nextPageBtn.addEventListener("click", () => displaySlide(++currentInd))
-prevPageBtn.addEventListener("click", () => displaySlide(--currentInd))
+firstPageBtn.addEventListener("click", () => {
+    displaySlide(1, 'right')
+})
+lastPageBtn.addEventListener("click", () => displaySlide(countPages, 'left'))
+nextPageBtn.addEventListener("click", () => displaySlide(++currentInd, 'right'))
+prevPageBtn.addEventListener("click", () => displaySlide(--currentInd, 'left'))

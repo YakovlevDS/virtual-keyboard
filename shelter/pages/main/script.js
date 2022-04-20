@@ -215,3 +215,15 @@ renderSlider()
 
 
 closePop.forEach(i => i.addEventListener("click", closePopup))
+
+// ======================
+const menu = document.querySelector('.header__menu')
+console.log('Value: ', menu);
+
+const toggleMenu = () => {
+    menu.classList.add('burger-active')
+    console.log('Value: ', menu);
+
+}
+
+menu.addEventListener("click", toggleMenu);
