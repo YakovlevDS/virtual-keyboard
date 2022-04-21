@@ -30,7 +30,7 @@ const dataPets = [{
         "breed": "Golden Retriever",
         "description": "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
         "age": "3 years 6 months",
-        "inoculations": ["adenovirus", "distemper"],
+        "inoculations": ["adenovirus", " distemper"],
         "diseases": ["right back leg mobility reduced"],
         "parasites": ["none"]
     },
@@ -90,8 +90,8 @@ const dataPets = [{
         "breed": "Jack Russell Terrier",
         "description": "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
         "age": "8 years",
-        "inoculations": ["bordetella bronchiseptica", "leptospirosis"],
-        "diseases": ["deafness", "blindness"],
+        "inoculations": ["bordetella bronchiseptica", "  leptospirosis"],
+        "diseases": ["deafness", " blindness"],
         "parasites": ["lice", "fleas"]
     }
 ]
@@ -101,6 +101,7 @@ const overlayPopup = document.querySelector('.popup-overlay')
 const petPopup = document.querySelector('.popup-card')
 const wrapPopup = document.querySelector('.wrap-popup')
 const body = document.body;
+
 
 // ---------------
 const sliderWrap = document.querySelector('.slider-wrap')
@@ -171,7 +172,7 @@ const renderCard = ({ id, name, type, img }) => {
 
 }
 
-const renderPopup = ({ name, type, img, breed, description, inoculations, diseases, parasites }) => {
+const renderPopup = ({ name, type, img, breed, age, description, inoculations, diseases, parasites }) => {
     const popupBlock = `
     <div class="popup-card__img">
         <img src=${img} alt=${type}>
@@ -181,7 +182,7 @@ const renderPopup = ({ name, type, img, breed, description, inoculations, diseas
         <p class="describe__subheading">${type} - ${breed}</p>
         <p class="describe__text">${description}</p>
         <ul class="describe__list">
-           <li class="describe__item"><span>Age:</span>&nbsp;${type}</li>
+           <li class="describe__item"><span>Age:</span>&nbsp;${age}</li>
            <li class="describe__item"><span>Inoculations:</span>&nbsp;${inoculations}</li>
            <li class="describe__item"><span>Diseases:</span>&nbsp;${diseases}</li>
            <li class="describe__item"><span>Parasites:</span>&nbsp;${parasites}</li>
@@ -217,13 +218,17 @@ renderSlider()
 closePop.forEach(i => i.addEventListener("click", closePopup))
 
 // ======================
+const burgerMenu = document.querySelector('.header__burger')
+const overlayMenu = document.querySelector('.menu-overlay')
 const menu = document.querySelector('.header__menu')
-console.log('Value: ', menu);
 
 const toggleMenu = () => {
-    menu.classList.add('burger-active')
-    console.log('Value: ', menu);
+    burgerMenu.classList.toggle('burger-active')
+    overlayMenu.classList.toggle('overlay-active')
+    menu.classList.toggle('menu-active')
+
 
 }
-
-menu.addEventListener("click", toggleMenu);
+burgerMenu.addEventListener('click', toggleMenu);
+overlayMenu.addEventListener('click', toggleMenu);
+menu.addEventListener('click', toggleMenu);
