@@ -1259,3 +1259,8 @@
                 .unhidden {
                     z-index: 30;
                 }
+                
+                .inactive {
+                    cursor: default;
+                    pointer-events: none;
+                }

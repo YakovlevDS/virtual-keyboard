@@ -226,6 +226,8 @@ const toggleMenu = () => {
     burgerMenu.classList.toggle('burger-active')
     overlayMenu.classList.toggle('overlay-active')
     menu.classList.toggle('menu-active')
+    body.style.overflow = body.style.overflow === '' ? 'hidden' : ''
+
 
 
 }
