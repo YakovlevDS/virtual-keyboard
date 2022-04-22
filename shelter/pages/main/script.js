@@ -42,7 +42,7 @@ const dataPets = [{
         "breed": "Jack Russell Terrier",
         "description": "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
         "age": "3 months",
-        "inoculations": ["parainfluenza"],
+        "inoculations": ["parainflu -enza"],
         "diseases": ["none"],
         "parasites": ["none"]
     },
@@ -54,7 +54,7 @@ const dataPets = [{
         "breed": "British Shorthair",
         "description": "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
         "age": "6 months",
-        "inoculations": ["panleukopenia"],
+        "inoculations": ["panleuko- penia"],
         "diseases": ["none"],
         "parasites": ["none"]
     },
@@ -66,7 +66,7 @@ const dataPets = [{
         "breed": "British Shorthair",
         "description": "Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.",
         "age": "2 years 3 months",
-        "inoculations": ["calicivirus", "viral rhinotracheitis"],
+        "inoculations": ["calicivirus", " viral rhinotracheitis"],
         "diseases": ["kidney stones"],
         "parasites": ["none"]
     },
@@ -139,8 +139,42 @@ const getNextRandomArr = (prevArr, n = 3) => {
     }
     return nextArr
 }
+const renderCard = ({ id, name, type, img }) => {
+        const cardBlock = `
+            <div class="slider-card" data-card=${id}>
+               <div class="slider-card__img">
+                   <img src=${img} alt=${type}>
+               </div>
+               <div class="slider-card__text">${name}</div>
+               <button type="button" class="slider-card__btn">Learn more</button>
+           </div> `
 
+        sliderWrap.insertAdjacentHTML(
+            "beforeend", cardBlock)
 
+    }
+    // ====================popup================
+
+const renderPopup = ({ name, type, img, breed, age, description, inoculations, diseases, parasites }) => {
+    const popupBlock = `
+<div class="popup-card__img">
+    <img src=${img} alt=${type}>
+</div>
+<div class="popup-card__describe">
+    <h2 class="describe__heading">${name}</h2>
+    <p class="describe__subheading">${type} - ${breed}</p>
+    <p class="describe__text">${description}</p>
+    <ul class="describe__list">
+       <li class="describe__item"><span>Age:</span>&nbsp;${age}</li>
+       <li class="describe__item"><span>Inoculations:</span>&nbsp;${inoculations}</li>
+       <li class="describe__item"><span>Diseases:</span>&nbsp;${diseases}</li>
+       <li class="describe__item"><span>Parasites:</span>&nbsp;${parasites}</li>
+    </ul>
+</div>
+`
+
+    petPopup.insertAdjacentHTML("beforeend", popupBlock)
+}
 const showPetCard = (e) => {
     const card = e.target.closest(".slider-card")
     const key = +card.dataset.card
@@ -152,47 +186,18 @@ const showPetCard = (e) => {
 }
 
 const closePopup = () => {
-    body.style.overflow = '';
     wrapPopup.classList.remove('show')
     overlayPopup.classList.remove('show')
+    body.style.overflow = '';
 }
 
-const renderCard = ({ id, name, type, img }) => {
-    const cardBlock = `
-    <div class="slider-card" data-card=${id}>
-       <div class="slider-card__img">
-           <img src=${img} alt=${type}>
-       </div>
-       <div class="slider-card__text">${name}</div>
-       <button type="button" class="slider-card__btn">Learn more</button>
-   </div> `
 
-    sliderWrap.insertAdjacentHTML(
-        "beforeend", cardBlock)
+closePop.forEach(i => i.addEventListener("click", closePopup))
 
-}
+//  ================end=popup============================
+//===================================================
 
-const renderPopup = ({ name, type, img, breed, age, description, inoculations, diseases, parasites }) => {
-    const popupBlock = `
-    <div class="popup-card__img">
-        <img src=${img} alt=${type}>
-    </div>
-    <div class="popup-card__describe">
-        <h2 class="describe__heading">${name}</h2>
-        <p class="describe__subheading">${type} - ${breed}</p>
-        <p class="describe__text">${description}</p>
-        <ul class="describe__list">
-           <li class="describe__item"><span>Age:</span>&nbsp;${age}</li>
-           <li class="describe__item"><span>Inoculations:</span>&nbsp;${inoculations}</li>
-           <li class="describe__item"><span>Diseases:</span>&nbsp;${diseases}</li>
-           <li class="describe__item"><span>Parasites:</span>&nbsp;${parasites}</li>
-        </ul>
-    </div>
-    `
-
-    petPopup.insertAdjacentHTML("beforeend", popupBlock)
-}
-
+// ================
 let startSlides = getRandomArr(3);
 
 const renderSlider = () => {
@@ -215,9 +220,8 @@ arrows.forEach(i => i.addEventListener("click", () => {
 renderSlider()
 
 
-closePop.forEach(i => i.addEventListener("click", closePopup))
 
-// ======================
+// ===============burger=======
 const burgerMenu = document.querySelector('.header__burger')
 const overlayMenu = document.querySelector('.menu-overlay')
 const menu = document.querySelector('.header__menu')
