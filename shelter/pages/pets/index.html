@@ -8,7 +8,7 @@
     <title>Pets</title>
     <link rel="stylesheet" href="../main/normalize.css">
     <link rel="stylesheet" href="./style.css">
-    <!-- <script src="./script.js" defer></script> -->
+    <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -22,13 +22,16 @@
             </div>
             <div class="header__burger">
                 <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
             </div>
+            <div class="menu-overlay"></div>
             <nav class="header__menu">
                 <ul>
-                    <li><a href="../main/index.html">About the shelter</a></li>
-                    <li><a href="#" class="active">Our pets</a></li>
-                    <li><a href="../main/index.html#help" class="disable">Help the shelter</a></li>
-                    <li><a href="#contacts" class="disable">Contacts</a></li>
+                    <li class="header-link"><a href="../main/index.html">About the shelter</a></li>
+                    <li class="header-link"><a href="#" class="active">Our pets</a></li>
+                    <li class="header-link"><a href="#" class="">Help the shelter</a></li>
+                    <li class="header-link"><a href="#" class="">Contacts</a></li>
                 </ul>
             </nav>
         </div>
@@ -135,6 +138,32 @@
                         </svg>
                             </button>
                 </div>
+
+                <div class="popup-overlay close"></div>
+                <div class="wrap-popup">
+                    <div class="popup-card">
+                        <!-- <div class="popup-card__img">
+                            <img src="../../assets/images/pets-charly.png" alt="pets-img">
+                        </div>
+                        <div class="popup-card__describe">
+                            <h2 class="describe__heading">Jennifer</h2>
+                            <p class="describe__subheading">Dog - Labrador</p>
+                            <p class="describe__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all
+                                of her favorite toys.</p>
+                            <ul class="describe__list">
+                                <li class="describe__item"><span>Age:</span>&nbsp;2 months</li>
+                                <li class="describe__item"><span>Inoculations:</span>&nbsp;none</li>
+                                <li class="describe__item"><span>Diseases:</span>&nbsp;none</li>
+                                <li class="describe__item"><span>Parasites:</span>&nbsp;none</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="popup-card__close close">
+                        <img src="../../assets/images/close.svg" alt="close">
+                    </div>
+                </div>
+
+
         </section>
     </main>
 

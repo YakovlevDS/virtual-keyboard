@@ -2,8 +2,11 @@ import { getRandom, getRandomArr, getNextRandomArr } from "./modules/random";
 import popup from "./modules/popup";
 import dataPets from "./modules/db";
 import renderSlider from "./modules/renderSlider"
+console.log('Value: ', dataPets);
 
 const len = dataPets.length
+console.log('Value: ', len);
+
 
 
 popup()
