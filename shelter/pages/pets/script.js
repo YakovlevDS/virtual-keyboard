@@ -183,6 +183,8 @@ const showPetCard = (e) => {
 
     body.style.overflow = 'hidden';
     petPopup.innerHTML = "";
+    // petPopup.style.transition = 'all 1s linear'
+
     renderPopup(listPets[key])
     wrapPopup.classList.add('show')
     overlayPopup.classList.add('show')
@@ -256,5 +258,3 @@ const toggleMenu = () => {
 }
 burgerMenu.addEventListener('click', toggleMenu);
 overlayMenu.addEventListener('click', toggleMenu);
-menu.addEventListener('click', toggleMenu);
-logo.addEventListener('click', toggleMenu);

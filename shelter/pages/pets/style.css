@@ -169,7 +169,7 @@
                     position: relative;
                 }
                 
-                .header__menu li:not(:last-child) {
+                .header-link:not(:last-child) {
                     margin-right: 3.5rem;
                 }
                 
@@ -224,22 +224,24 @@
                         width: 32rem;
                     }
                     .header__logo {
-                        z-index: 50;
+                        z-index: 60;
                     }
                     .header__burger {
                         display: inline-block;
-                        z-index: 50;
+                        z-index: 60;
                     }
                     .header__menu {
                         position: absolute;
                         top: 0;
                         right: 0;
                         transform: translate(200%);
-                        /* width: 0rem; */
                         bottom: 0;
                         width: 32rem;
                         z-index: 50;
                         transition: all 1s linear;
+                    }
+                    .header-link:not(:last-child) {
+                        margin-right: 0rem;
                     }
                     .header__menu ul {
                         padding-top: 24.2rem;

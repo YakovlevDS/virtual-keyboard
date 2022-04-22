@@ -233,4 +233,3 @@ const toggleMenu = () => {
 }
 burgerMenu.addEventListener('click', toggleMenu);
 overlayMenu.addEventListener('click', toggleMenu);
-menu.addEventListener('click', toggleMenu);
