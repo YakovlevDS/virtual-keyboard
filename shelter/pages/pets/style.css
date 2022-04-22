@@ -36,6 +36,7 @@ body {
     font-style: normal;
     color: #fff;
     background: #F6F6F6;
+    overflow-x: hidden;
 }
 
 img {
@@ -239,7 +240,7 @@ li a::after {
         top: 0;
         right: 0;
         bottom: 0;
-        transform: translate(200%);
+        transform: translateX(200%);
         z-index: 50;
         height: 100vh;
         /* transform: scale(0); */
@@ -320,7 +321,7 @@ li a::after {
 }
 
 .menu-active {
-    transform: translate(0%);
+    transform: translateX(0%);
     width: auto;
     transition: all 1s linear;
 }
@@ -1243,7 +1244,7 @@ footer {
     0% {
         opacity: 0;
         transform: scale(0);
-        transform: translate(200%)
+        transform: translateX(200%)
     }
     75% {
         opacity: 0.7;
@@ -1252,7 +1253,7 @@ footer {
     100% {
         opacity: 1;
         transform: scale(1);
-        transform: translate(0%)
+        transform: translateX(0%)
     }
 }
 
@@ -1260,7 +1261,7 @@ footer {
     0% {
         opacity: 0;
         transform: scale(0);
-        transform: translate(-200%)
+        transform: translateX(-200%)
     }
     75% {
         opacity: 0.7;
@@ -1269,7 +1270,7 @@ footer {
     100% {
         opacity: 1;
         transform: scale(1);
-        transform: translate(0%)
+        transform: translateX(0%)
     }
 }
 
@@ -1281,7 +1282,7 @@ footer {
     0% {
         opacity: 1;
         transform: scale(1);
-        transform: translate(0)
+        transform: translateX(0)
     }
     25% {
         opacity: 0.7;
@@ -1290,7 +1291,7 @@ footer {
     100% {
         opacity: 0;
         transform: scale(1);
-        transform: translate(200%)
+        transform: translateX(200%)
     }
 }
 

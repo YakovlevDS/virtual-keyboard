@@ -37,6 +37,7 @@
      font-style: normal;
      color: #fff;
      background: #F6F6F6;
+     overflow-x: hidden;
  }
  
  img {
@@ -257,7 +258,7 @@
          top: 0;
          right: 0;
          bottom: 0;
-         transform: translate(200%);
+         transform: translateX(200%);
          z-index: 50;
          height: 100vh;
          /* transform: scale(0); */
@@ -335,7 +336,7 @@
  }
  
  .menu-active {
-     transform: translate(0%);
+     transform: translateX(0%);
      transition: all 1s linear;
  }
  
