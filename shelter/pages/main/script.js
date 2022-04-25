@@ -226,6 +226,7 @@ const burgerMenu = document.querySelector('.header__burger')
 const overlayMenu = document.querySelector('.menu-overlay')
 const menu = document.querySelector('.header__menu')
 
+
 const toggleMenu = () => {
     burgerMenu.classList.toggle('burger-active')
     overlayMenu.classList.toggle('overlay-active')
@@ -237,3 +238,4 @@ const toggleMenu = () => {
 }
 burgerMenu.addEventListener('click', toggleMenu);
 overlayMenu.addEventListener('click', toggleMenu);
+menu.addEventListener('click', toggleMenu);
