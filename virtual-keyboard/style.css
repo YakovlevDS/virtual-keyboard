@@ -9,8 +9,9 @@ html,
 body {
     font-size: 62.5%;
     font-weight: normal;
-    color: #fff;
-    background: linear-gradient(90deg, rgb(145, 31, 31) 0%, rgb(65, 194, 61) 100%);
+    color: rgb(63, 5, 5);
+    /* background: linear-gradient(90deg, rgb(145, 31, 31) 0%, rgb(65, 194, 61) 100%);
+    background-repeat: none; */
 }
 
 img {
@@ -42,11 +43,15 @@ h6 {
     margin: 0;
 }
 
+main {
+    width: 128rem;
+    margin: auto;
+}
+
 .container {
-    width: 76.8rem;
-    height: 60rem;
-    margin: 0 auto;
-    background-color: blue;
+    width: 128rem;
+    margin: auto;
+    /* background-color: #0D1117; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,6 +61,7 @@ h6 {
 
 .field-out {
     margin: 4rem;
+    background-color: #FFFFFF;
 }
 
 .field-out__text {
@@ -69,22 +75,29 @@ h6 {
     justify-items: center;
     align-items: center;
     margin: 2rem, 4rem;
-    background: rgb(80, 71, 71);
+    background: rgb(83, 80, 80);
+    row-gap: .5rem;
+    padding: 1rem;
 }
 
 .row {
     display: flex;
-    row-gap: .5rem;
     column-gap: .5rem;
 }
 
 .input__key {
+    position: relative;
     width: 4rem;
     height: 4rem;
-    color: rgb(43, 36, 36);
+    color: #3A424E;
+    /* color: #0D1117; */
     display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
     flex-direction: column;
-    border: .1rem solid red;
+    border: .1rem solid rgb(0, 255, 0);
+    border-radius: .5rem;
 }
 
 .field-text {
@@ -97,11 +110,45 @@ h6 {
 }
 
 .sup {
-    color: #1616f0;
+    position: absolute;
+    top: .1rem;
+    left: .2rem;
+    color: #f7f0f0;
     align-self: flex-start;
+    font-size: 1.4rem;
+    font-weight: 800;
+    /* padding-top: .1rem; */
+    /* padding-left: .1rem; */
 }
 
 .main {
-    color: #1616f0;
+    color: #fafafc;
     align-self: center;
+    font-size: 2rem;
+    font-weight: 900;
+    /* padding-bottom: .2rem; */
+}
+
+.fsz {
+    font-size: 1.5rem;
+}
+
+.big {
+    width: 9.5rem;
+}
+
+.sm {
+    width: 4.5rem;
+}
+
+.enter {
+    width: 9rem;
+}
+
+.sp {
+    width: 28rem;
+}
+
+.ctrl {
+    width: 6.5rem;
 }

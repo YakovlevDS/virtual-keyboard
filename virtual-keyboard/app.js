@@ -1,0 +1,1 @@
+// const row1 = document.querySelector('.row-1')
