@@ -3,3 +3,4 @@ Private repository for @yakovlevds
 
 
 ## [1.Project - Shelter-Desktop.](https://rolling-scopes-school.github.io/yakovlevds-JSFE2022Q1/shelter/pages/main/)
+## [2.Project - Virtual-keyboard.](https://rolling-scopes-school.github.io/yakovlevds-JSFE2022Q1/virtual-keyboard/)
