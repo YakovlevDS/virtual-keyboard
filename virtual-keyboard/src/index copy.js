@@ -1,8 +1,8 @@
-import renderBody from './modules/renderBody';
 import part1 from './modules/part1';
+import part2 from './modules/renderBody';
 import { en } from './modules/db/en';
 part1()
-renderBody()
+part2()
 console.log(' index.js works');
 
 let input = document.createElement("div")
