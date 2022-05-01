@@ -1,4 +1,5 @@
-const renderKeyboard = (lang) => {
+const renderKeyboard = (lang, bool = false) => {
+
     // let bool = false
     // let lang = bool ? en : ru
 
@@ -26,7 +27,9 @@ const renderKeyboard = (lang) => {
             this.parent = document.querySelector(parent)
         }
 
-        render() {
+        render(bool = false) {
+            this.main = bool ? this.main.toUpperCase() : this.main.toLowerCase()
+            bool
             let btn = document.createElement("div")
             btn.classList.add('input__key')
             btn.setAttribute("data_id", this.data_id)
@@ -58,7 +61,7 @@ const renderKeyboard = (lang) => {
         if (id < 43 && id > 29) { parent = ".row-3" }
         if (id < 57 && id > 42) { parent = ".row-4" }
         if (id > 56) { parent = ".row-5" }
-        new Btn(i.data_id, i.sup, i.main, parent).render()
+        new Btn(i.data_id, i.sup, i.main, parent).render(bool)
     })
 }
 export default renderKeyboard
