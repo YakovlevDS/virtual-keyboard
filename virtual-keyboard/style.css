@@ -185,3 +185,8 @@ p {
 .ctrl {
     width: 6.5rem;
 }
+
+.pressed {
+    background-color: #59ff4f;
+    color: #ac3320;
+}

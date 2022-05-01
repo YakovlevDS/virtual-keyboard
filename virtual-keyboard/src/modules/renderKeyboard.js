@@ -1,7 +1,8 @@
-const renderKeyboard = (lang, bool = false) => {
+import { en } from './db/en';
+import { ru } from './db/ru';
+const renderKeyboard = (bool = true) => {
 
-    // let bool = false
-    // let lang = bool ? en : ru
+    let lang = bool ? en : ru
 
     let input = document.createElement("div")
     input.classList.add('field-input')
@@ -20,8 +21,10 @@ const renderKeyboard = (lang, bool = false) => {
     }
 
     class Btn {
-        constructor(data_id, sup, main, parent) {
+        constructor(data_id, data_letter, data_spec, sup, main, parent) {
             this.data_id = data_id
+            this.data_letter = data_letter
+            this.data_spec = data_spec
             this.sup = sup
             this.main = main
             this.parent = document.querySelector(parent)
@@ -33,6 +36,7 @@ const renderKeyboard = (lang, bool = false) => {
             let btn = document.createElement("div")
             btn.classList.add('input__key')
             btn.setAttribute("data_id", this.data_id)
+
             this.data_id === 14 || this.data_id === 30 || this.data_id === 43 ? btn.classList.add('big') : null
             this.data_id === 60 ? btn.classList.add('sp') : null
             this.data_id === 57 || this.data_id === 61 ? btn.classList.add('ctrl') : null
@@ -46,7 +50,9 @@ const renderKeyboard = (lang, bool = false) => {
             this.parent.append(btn);
             if ([14, 15, 29, 30, 42, 43, 57, 56, 58, 59, 61, 62].includes(this.data_id)) {
                 btn.querySelector(".main").classList.add('fsz')
-            }
+                btn.setAttribute("data-spec", this.data_spec)
+
+            } else { btn.setAttribute("data-letter", this.data_letter) }
         }
     }
 
@@ -61,7 +67,7 @@ const renderKeyboard = (lang, bool = false) => {
         if (id < 43 && id > 29) { parent = ".row-3" }
         if (id < 57 && id > 42) { parent = ".row-4" }
         if (id > 56) { parent = ".row-5" }
-        new Btn(i.data_id, i.sup, i.main, parent).render(bool)
+        new Btn(i.data_id, data_letter, data_spec, i.sup, i.main, parent).render(bool)
     })
 }
 export default renderKeyboard
