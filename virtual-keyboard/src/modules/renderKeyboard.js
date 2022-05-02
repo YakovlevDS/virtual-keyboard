@@ -2,7 +2,7 @@ import { en } from './db/en';
 import { ru } from './db/ru';
 import init from './init';
 
-const renderKeyboard = (bool = true, up = false) => {
+const renderKeyboard = (bool, up = false) => {
 
     let lang = bool ? en : ru
 

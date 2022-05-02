@@ -1,4 +1,4 @@
-import { bool } from './db/const';
+// import { bool } from './db/const';
 import clear from './clear';
 import renderKeyboard from './renderKeyboard';
 

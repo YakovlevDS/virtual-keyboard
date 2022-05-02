@@ -1,6 +1,6 @@
 import renderKeyboard from './renderKeyboard';
 import clear from './clear';
-import { bool } from './db/const';
+import {set } from './db/store';
 
 // console.log(bool);
 
@@ -11,6 +11,7 @@ const switchLan = (bool) => {
         if (e.key == 'Shift' && flagLan) {
             flagLan = false
             bool = !bool
+            set('langEn', bool);
             clear()
             renderKeyboard(bool)
         }

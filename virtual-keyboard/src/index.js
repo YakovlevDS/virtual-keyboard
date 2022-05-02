@@ -5,7 +5,7 @@ import init from './modules/init';
 import switchLan from './modules/switchLan';
 import virtualBoard from './modules/virtualBoard';
 renderBody()
-renderKeyboard()
+renderKeyboard(bool)
 init()
-switchLan()
+switchLan(bool)
 virtualBoard()
