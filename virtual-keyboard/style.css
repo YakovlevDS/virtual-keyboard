@@ -80,7 +80,9 @@ main {
 }
 
 .field-out__text {
-    width: 100%;
+    font-size: 2.5rem;
+    font-weight: 700;
+    width: 90%;
 }
 
 .field-input {
@@ -187,6 +189,6 @@ p {
 }
 
 .pressed {
-    background-color: #59ff4f;
-    color: #ac3320;
+    /* background-color: #25ec1b; */
+    background-color: #ec1b1b;
 }

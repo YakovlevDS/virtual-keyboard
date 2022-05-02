@@ -10,8 +10,8 @@ const renderBody = () => {
         </div>
         <div class="field-text">
             <p>The virtual keyboard is able to switch between two language layouts (English + Russian)</p>
-            <p>Клавиатура создана в операционной системе Windows</p>
-            <p>Для переключения языка комбинация: левыe ctrl + alt</p>
+            <p>The keyboard was created in the operating system Windows</p>
+            <p>To switch the language combination: ctrl + shift</p>
         </div>
       </div>
     </main>

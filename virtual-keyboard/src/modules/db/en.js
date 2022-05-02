@@ -1,7 +1,7 @@
 export const en = [{
         "data_id": 1,
         "data_spec": '',
-        "data_letter": 'Ёё',
+        "data_letter": '`',
         "sup": "~",
         "main": "`"
     },
@@ -196,7 +196,7 @@ export const en = [{
     },
     {
         "data_id": 29,
-        "data_spec": 'del',
+        "data_spec": 'delete',
         "data_letter": '',
         "sup": "",
         "main": "DEL"
@@ -393,14 +393,14 @@ export const en = [{
     },
     {
         "data_id": 57,
-        "data_spec": 'ctrl',
+        "data_spec": 'control',
         "data_letter": '',
         "sup": "",
         "main": "Ctrl"
     },
     {
         "data_id": 58,
-        "data_spec": 'win',
+        "data_spec": 'META',
         "data_letter": '',
         "sup": "",
         "main": "Win"
@@ -421,7 +421,7 @@ export const en = [{
     },
     {
         "data_id": 61,
-        "data_spec": 'ctrl',
+        "data_spec": 'control',
         "data_letter": '',
         "sup": "",
         "main": "Ctrl"
