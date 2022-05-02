@@ -45,9 +45,8 @@ const renderKeyboard = (bool = true, up = false) => {
 
             this.data_id === 14 || this.data_id === 30 || this.data_id === 43 ? btn.classList.add('big') : null
             this.data_id === 60 ? btn.classList.add('sp') : null
-            this.data_id === 57 || this.data_id === 61 ? btn.classList.add('ctrl') : null
+            this.data_id === 57 || this.data_id === 62 ? btn.classList.add('ctrl') : null
             this.data_id === 15 || this.data_id === 29 ? btn.classList.add('sm') : null
-            this.data_id === 61 ? btn.classList.add('fsz') : null
             this.data_id === 42 ? btn.classList.add('enter') : null;
             btn.innerHTML = `
                 <div class="sup">${this.sup}</div>

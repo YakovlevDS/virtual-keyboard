@@ -2,7 +2,7 @@ import renderKeyboard from './renderKeyboard';
 import clear from './clear';
 import { bool } from './db/const';
 
-console.log(bool);
+// console.log(bool);
 
 const switchLan = (bool) => {
     let flagLan = true

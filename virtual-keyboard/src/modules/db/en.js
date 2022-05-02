@@ -421,18 +421,19 @@ export const en = [{
     },
     {
         "data_id": 61,
+        "data_spec": 'alt',
+        "data_letter": '',
+        "sup": "",
+        "main": "Alt"
+    }, ,
+    {
+        "data_id": 62,
         "data_spec": 'control',
         "data_letter": '',
         "sup": "",
         "main": "Ctrl"
     },
-    {
-        "data_id": 62,
-        "data_spec": 'alt',
-        "data_letter": '',
-        "sup": "",
-        "main": "Alt"
-    },
+
     {
         "data_id": 63,
         "data_spec": 'arrowleft',
