@@ -1,6 +1,6 @@
 const renderBody = () => {
-    const body = document.querySelector('body')
-    body.innerHTML = `
+  const body = document.querySelector('body');
+  body.innerHTML = `
     <main>
       <div class="container">
         <h1>Virtual Keyboard</h1>
@@ -15,7 +15,6 @@ const renderBody = () => {
         </div>
       </div>
     </main>
-    `
-
-}
-export default renderBody
+    `;
+};
+export default renderBody;
