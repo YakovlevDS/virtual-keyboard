@@ -4,18 +4,18 @@ export default class Btn {
     sup,
     main,
     parent,
-    dataCode,
-    dataIsFn = '',
-    dataSpec = '',
-    dataLetter = '',
+    сode,
+    isFn,
+    dataSpec,
+    dataLetter,
   ) {
     this.dataId = dataId;
     this.dataLetter = dataLetter;
     this.dataSpec = dataSpec;
     this.sup = sup;
     this.main = main;
-    this.dataCode = dataCode;
-    this.dataIsFn = dataIsFn;
+    this.сode = сode;
+    this.isFn = isFn;
     this.parent = document.querySelector(parent);
   }
 
@@ -25,9 +25,9 @@ export default class Btn {
     btn.classList.add('input__key');
     btn.setAttribute('data-id', this.dataId);
     btn.setAttribute('data-letter', this.dataLetter);
-    if (hasOwnProperty(this.dataSpec)) { btn.setAttribute('data-spec', this.dataSpec); }
-    if (hasOwnProperty(this.dataCode)) { btn.setAttribute('data-code', this.dataCode); }
-    if (hasOwnProperty(this.dataIsFn)) { btn.setAttribute('data-isFn', this.dataIsFn); }
+    btn.setAttribute('data-spec', this.dataSpec);
+    btn.setAttribute('data-code', this.сode);
+    btn.setAttribute('data-isFn', this.isFn);
 
     if (this.dataId === 14 || this.dataId === 30 || this.dataId === 43) { btn.classList.add('big'); }
     if (this.dataId === 60) { btn.classList.add('sp'); }
@@ -38,6 +38,7 @@ export default class Btn {
                 <div class="upper">${this.sup}</div>
                 <div class="down">${this.main}</div>
              `;
+
     this.parent.append(btn);
     const spec = [14, 15, 29, 30, 42, 43, 57, 56, 58, 59, 61, 62];
     if (spec.includes(this.dataId)) {

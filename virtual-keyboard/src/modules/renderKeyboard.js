@@ -4,13 +4,13 @@ import init from './init';
 import Row from './renderRow';
 import Btn from './renderBtn';
 
-const renderKeyboard = (bool, up = false) => {
+const renderKeyboard = (bool) => {
   let isShift = false;
   let isAlt = false;
   let isCtrl = false;
   let isCaps = false;
   const btnPress = {};
-  let arrBtns = [];
+  let arrButtons = [];
   const lang = bool ? en : ru;
 
   const input = document.createElement('div');
@@ -22,79 +22,101 @@ const renderKeyboard = (bool, up = false) => {
   }
   lang.forEach((i) => {
     let parent;
-    if (up) { i.main.toUpperCase(); }
     const id = i.dataId;
     if (id < 15) { parent = '.row-1'; }
-    if (id < 30 && id > 14) { parent = '.row-2'; }
-    if (id < 43 && id > 29) { parent = '.row-3'; }
-    if (id < 57 && id > 42) { parent = '.row-4'; }
+    if (id > 14 && id < 30) { parent = '.row-2'; }
+    if (id > 29 && id < 43) { parent = '.row-3'; }
+    if (id > 42 && id < 57) { parent = '.row-4'; }
     if (id > 56) { parent = '.row-5'; }
+
     new Btn(
       id,
       i.sup,
       i.main,
       parent,
-      i.dataCode,
-      i.dataIsFn,
+      i.code,
+      i.isFn,
       i.dataSpec,
       i.dataLetter,
     ).render(bool);
   });
+
   init();
 
-  const upCase = (isUp) => {
-    if (isUp) {
-      arrBtns.forEach((i) => {
-        i.down.TextContent.toUpperCase();
-        i.upper.classList.add('hide');
-      });
-    } else {
-      arrBtns.forEach((i) => {
-        i.down.TextContent.toLowerCase();
-        i.upper.classList.remove('hide');
-        if (i.sup) {
-          i.down.classList.add('hide');
-          i.upper.classList.add('up-active');
-        }
-      });
-    }
-  };
+  const allBtns = document.querySelectorAll('.input__key')
 
-  // if (isUp) {
-  //     arrBtns.forEach((i) => {
-  //         if (i.sup) {
-  //             if (isShift) {
-  //                 i.upper.classList.add('up-active');
-  //                 i.down.classList.add('up-inactive');
-  //             }
-  //         }
-  //         if (!i.isFn && isCaps && !isShift && !i.upper.innerHTML) {
-  //             i.down.TextContent = i.main;
-  //         } else if (!i.isFn && isCaps && isShift) {
-  //             i.down.TextContent = i.sup;
-  //         } else if (!i.isFn && !i.sup.innerHTML) {
-  //             i.down.TextContent = i.main;
-  //         }
+  allBtns.forEach(b => arrButtons.push({
+    divUp: b.children[0],
+    divMain: b.children[1],
+    id: b.dataset.id,
+    code: b.dataset.code,
+    isFn: b.dataset.isfn,
+    dataSpec: b.dataset.spec,
+    big: b.dataset.letter[0],
+    small: b.dataset.letter[1],
+  }));
+
+  // console.dir(document.querySelectorAll('.input__key')[0].children[0].innerHTML);
+  // console.dir(document.querySelectorAll('.input__key')[0].dataset);
+
+  // arrButtons = arrButtons.push(Array.from(document.querySelectorAll('.input__key')));
+  // console.log(arrButtons);
+
+  // const upCase = (isUp) => {
+  //   if (isUp) {
+  //     arrButtons.forEach((i) => {
+  //       console.log(i.down.innerHTML.toUpperCase());
+
+  //       i.down.innerHTML.toUpperCase();
+  //       i.upper.classList.add('hide');
   //     });
-  // } else {
-  //     arrBtns.forEach((u) => {
-  //         if (u.upper.TextContent && !u.isFn) {
-  //             u.upper.classList.remove('up-active');
-  //             u.down.classList.remove('up-inactive');
-  //             if (!isCaps) {
-  //                 u.down.TextContent = u.sup;
-  //             } else if (isCaps) {
-  //                 u.down.TextContent = u.main;
-  //             }
-  //         } else if (!u.isFn) {
-  //             if (isCaps) {
-  //                 u.down.TextContent = u.main;
-  //             } else {
-  //                 u.down.TextContent = u.sup;
-  //             }
-  //         }
+  //   } else {
+  //     arrButtons.forEach((i) => {
+  //       i.down.TextContent.toLowerCase();
+  //       i.upper.classList.remove('hide');
+  //       if (i.sup) {
+  //         i.down.classList.add('hide');
+  //         i.upper.classList.add('up-active');
+  //       }
   //     });
-  // }
+  //   }
+  // };
+
+  if (isUp) {
+    arrButtons.forEach((i) => {
+      if (i.sup) {
+        if (isShift) {
+          i.upper.classList.add('up-active');
+          i.down.classList.add('up-inactive');
+        }
+      }
+      if (!i.isFn && isCaps && !isShift && !i.upper.innerHTML) {
+        i.down.TextContent = i.main;
+      } else if (!i.isFn && isCaps && isShift) {
+        i.down.TextContent = i.sup;
+      } else if (!i.isFn && !i.sup.innerHTML) {
+        i.down.TextContent = i.main;
+      }
+    });
+  } else {
+    arrButtons.forEach((u) => {
+      if (u.upper.TextContent && !u.isFn) {
+        u.upper.classList.remove('up-active');
+        u.down.classList.remove('up-inactive');
+        if (!isCaps) {
+          u.down.TextContent = u.sup;
+        } else if (isCaps) {
+          u.down.TextContent = u.main;
+        }
+      } else if (!u.isFn) {
+        if (isCaps) {
+          u.down.TextContent = u.main;
+        } else {
+          u.down.TextContent = u.sup;
+        }
+      }
+    });
+  }
 
   function clearPress(x) {
     if (!btnPress[x]) return;
@@ -173,10 +195,7 @@ const renderKeyboard = (bool, up = false) => {
 
   const handleKeyboardEvent = (e) => {
     if (e.stopPropagation) e.stopPropagation();
-    // const { code, type } = e;
-    // console.log(e.code, e.type);
-    arrBtns = arrBtns.push(Array.from(document.querySelectorAll('input__key')));
-    const btn = arrBtns.find((i) => i.code === e.code);
+    const btn = arrButtons.find((i) => i.code === e.code);
     if (!btn) return;
     document.querySelector('.field-out').focus();
 
