@@ -53,8 +53,8 @@ const init = () => {
     }
   };
 
-  output.addEventListener('keydown', keydownHandler);
-  output.addEventListener('keyup', keyupHandler);
+  // output.addEventListener('keydown', keydownHandler);
+  // output.addEventListener('keyup', keyupHandler);
 };
 
 export default init;

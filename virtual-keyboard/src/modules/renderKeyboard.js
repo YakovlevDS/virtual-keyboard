@@ -61,74 +61,83 @@ const renderKeyboard = (bool) => {
   // console.dir(document.querySelectorAll('.input__key')[0].children[0].innerHTML);
   // console.dir(document.querySelectorAll('.input__key')[0].dataset);
   // console.dir(document.querySelector('.input__key'));
-
-  // arrButtons = arrButtons.push(Array.from(document.querySelectorAll('.input__key')));
   // console.log(arrButtons);
 
-  const upCase = (isUp = false) => {
-    if (isUp) {
-      arrButtons.forEach((i) => {
-        if (i.divUp) {
-          if (isShift) {
-            i.divUp.classList.add('up-active');
-            i.divMain.classList.add('up-inactive');
-          }
-        }
-        if (!i.isFn && isCaps && !isShift && !i.divUp.innerHTML) {
-          i.divMain.innerHTML = i.big;
-        } else if (!i.isFn && isCaps && isShift) {
-          i.divMain.innerHTML = i.small;
-        } else if (!i.isFn && !i.divUp.innerHTML) {
-          i.divMain.innerHTML = i.big;
-        }
-      });
-    } else {
-      arrButtons.forEach((u) => {
-        if (u.divUp.innerHTML && !u.isFn) {
-          u.divUp.classList.remove('up-active');
-          u.divMain.classList.remove('up-inactive');
-          if (!isCaps) {
-            u.divMain.innerHTML = u.small;
-          } else if (isCaps) {
-            u.divMain.innerHTML = u.big;
-          }
-        } else if (!u.isFn) {
-          if (isCaps) {
-            u.divMain.innerHTML = u.big;
-          } else {
-            u.divMain.innerHTML = u.small;
-          }
-        }
-      });
-    }
-  };
+  // const upCase = (isUp = false) => {
+  //   if (isUp) {
+  //     arrButtons.forEach((i) => {
+  //       if (i.divUp) {
+  //         if (isShift) {
+  //           i.divUp.classList.add('up-active');
+  //           i.divMain.classList.add('up-inactive');
+  //         }
+  //       }
+  //       if (!i.isFn && isCaps && !isShift && !i.divUp.innerHTML) {
+  //         i.divMain.innerHTML = i.big;
+  //       } else if (!i.isFn && isCaps && isShift) {
+  //         i.divMain.innerHTML = i.small;
+  //       } else if (!i.isFn && !i.divUp.innerHTML) {
+  //         i.divMain.innerHTML = i.big;
+  //       }
+  //     });
+  //   } else {
+  //     arrButtons.forEach((u) => {
+  //       if (u.divUp.innerHTML && !u.isFn) {
+  //         u.divUp.classList.remove('up-active');
+  //         u.divMain.classList.remove('up-inactive');
+  //         if (!isCaps) {
+  //           u.divMain.innerHTML = u.small;
+  //         } else if (isCaps) {
+  //           u.divMain.innerHTML = u.big;
+  //         }
+  //       } else if (!u.isFn) {
+  //         if (isCaps) {
+  //           u.divMain.innerHTML = u.big;
+  //         } else {
+  //           u.divMain.innerHTML = u.small;
+  //         }
+  //       }
+  //     });
+  //   }
+  // };
 
-  const clearState = (ev) => {
+  function clearBtns(target) {
+    // console.log(btnPress[target]);
+    if (!btnPress[target]) return;
+    if (!isCaps) btnPress[target].divBtn.classList.remove('pressed');
+    btnPress[target].divBtn.removeEventListener('mouseleave', clearState);
+    delete btnPress[target];
+  }
+  function clearState(ev) {
+    // console.log('ok');
+
     const button = arrButtons.find((i) => i.code === ev.code);
     const { code } = ev.target.dataset;
-    if (code === 'Shift') {
+    if (code === 'ShiftLeft' || code === 'ShiftRight') {
       isShift = false;
-      upCase(false);
+      // upCase(false);
       button[code].divBtn.classList.remove('pressed');
     }
-    if (code === 'Control') { isCtrl = false; }
-    if (code === 'Alt') {
+    if (code === 'ControlLeft' || code === 'ControlRight') { isCtrl = false; }
+    if (code === 'AltLeft' || code === 'AltRight') {
       isAlt = false;
-      if (button[code] && !isCaps) { button[code].divBtn.classList.remove('pressed'); }
-
-      outputArea.focus();
-      button[code].divBtn.removeEventListener('mouseleave', clearState);
     }
+    clearBtns(code);
+    // if (button[code] && !isCaps) { button[code].divBtn.classList.remove('pressed'); }
+    // button[code].divBtn.removeEventListener('mouseleave', clearState);
+    outputArea.focus();
   };
 
   const outPrint = (btn, sml) => {
-    // console.log(outputArea);
+
     let pos = outputArea.selectionStart;
-    // console.log(pos);
+    const x = btn.code
+    console.log(x);
 
     const left = outputArea.value.slice(0, pos);
     const right = outputArea.value.slice(pos);
-
+    // console.log(left);
+    // console.log(right);
     const navigationHandle = {
       Tab: () => {
         outputArea.value = `${left}\t${right}`;
@@ -168,8 +177,14 @@ const renderKeyboard = (bool) => {
         pos += 1;
       },
     };
-    if (navigationHandle[btn.code]) navigationHandle[btn.code]();
-    else if (!btn.isFn) {
+    // console.log(btn.isFn = false);
+
+    if (navigationHandle[x]) {
+      // console.log('okk');
+      navigationHandle[x]();
+    }
+    else if (btn.isFn) {
+      // console.log('ok');
       pos += 1;
       outputArea.value = `${left}${sml || ''}${right}`;
     }
@@ -179,73 +194,74 @@ const renderKeyboard = (bool) => {
   const handleKeyboardEvent = (e) => {
     if (e.stopPropagation) e.stopPropagation();
     const btn = arrButtons.find((i) => i.code === e.code);
-    // console.log(arrButtons);
-
     if (!btn) return;
     outputArea.focus();
-
     if (e.type === 'keydown' || e.type === 'mousedown') {
+      // console.log(e.code);
+
       if (!e.type === 'mousedown' && e.type === 'mouseup') { e.preventDefault(); }
-      if (e.code === 'Shift') { isShift = true; }
-      if (isShift) { upCase(true); }
-      if ((e.code === 'Control' || e.code === 'Alt' || e.code === 'Caps') && (e.repeat)) { return; }
-      if (e.code === 'Control') { isCtrl = true; }
-      if (e.code === 'Alt') { isAlt = true; }
-      // if (e.code === 'Control' && isShift) {
-      //   switchLan();
-      // }
-      // if (e.code === 'Shift' && isCtrl) {
-      //   switchLan();
-      // }
+      if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+        isShift = true;
+      }
+      // if (isShift) { upCase(true); }
+      if (e.code.match(/Control|Alt|Caps/) && (e.repeat)) { return; }
+      if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = true; }
+      if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = true; }
+      // if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) {switchLan()}
+      // if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) {switchLan();}
       btn.divBtn.classList.add('pressed');
-      if (e.code === 'Caps' && !isCaps) {
+
+      if (e.code === 'CapsLock' && !isCaps) {
         isCaps = true;
-        upCase(true);
-      } else if (e.code === 'Caps' && isCaps) {
+        // upCase(true);
+      } else if (e.code === 'CapsLock' && isCaps) {
         isCaps = false;
-        upCase(false);
+        // upCase(false);
         btn.divBtn.classList.remove('pressed');
       }
       if (!isCaps) {
-        const symbolIsCaps = isShift ? btn.main : btn.sup;
-        outPrint(btn, symbolIsCaps);
+        outPrint(btn, isShift ? btn.big : btn.small);
       } else if (isCaps) {
         if (isShift) {
-          const symbolIsShiht = btn.upper.innerHTML ? btn.main : btn.sup;
-          outPrint(btn, symbolIsShiht);
+          outPrint(btn, btn.divUp.innerHTML ? btn.big : btn.small);
         } else {
-          const symbol = !btn.upper.innerHTML ? btn.main : btn.sup;
-          outPrint(btn, symbol);
+          outPrint(btn, !btn.divUp.innerHTML ? btn.big : btn.small);
         }
       }
+      btnPress[btn.code] = btn;
     } else if (e.type === 'keyup' || e.type === 'mouseup') {
-      if (btn[e.code] && !isCaps) { btn[e.code].divBtn.classList.remove('pressed'); }
-    }
+      // console.log('yes', btnPress);
+      // console.log(btnPress[btn.code]);
+      // ..проверить позже
+      clearBtns(btn.code);
 
-    if (e.code === 'Shift') {
+      // if (btn.code && !isCaps) { btnPress[btn.code].divBtn.classList.remove('pressed'); }
+      // btnPress[btn.code].divBtn.removeEventListener('mouseleave', clearState);
+
+      delete btnPress[btn.code];
+      // console.log(btnPress);
+    }
+    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
       isShift = false;
-      upCase(false);
+      // upCase(false);
     }
-    if (e.code === 'Control') { isCtrl = false; }
-    if (e.code === 'Alt') { isAlt = false; }
-
-    if (!e.code === 'Caps') btn.divBtn.classList.remove('pressed');
+    if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = false; }
+    if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = false; }
+    if (!e.code === 'CapsLock') btn.divBtn.classList.remove('pressed');
   };
 
   const handleMouseEvent = (e) => {
     e.stopPropagation();
     const targetBtn = e.target.closest('.input__key');
+    // console.log({ code: targetBtn.dataset.code, type: e.type });
     if (!targetBtn) return;
-
     targetBtn.addEventListener('mouseleave', clearState);
-    handleKeyboardEvent({ code: e.code, type: e.type });
+    handleKeyboardEvent({ code: targetBtn.dataset.code, type: e.type });
   };
 
   document.addEventListener('keydown', handleKeyboardEvent);
   document.addEventListener('keyup', handleKeyboardEvent);
-  outputArea.addEventListener('onmousedown', handleMouseEvent);
-  outputArea.addEventListener('onmouseup', handleMouseEvent);
-  outputArea.onmousedown = handleMouseEvent;
-  outputArea.onmouseup = handleMouseEvent;
+  input.onmousedown = handleMouseEvent;
+  input.onmouseup = handleMouseEvent;
 };
 export default renderKeyboard;

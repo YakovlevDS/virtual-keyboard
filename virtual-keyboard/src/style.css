@@ -86,13 +86,14 @@ h6 {
 
 .field-out {
   margin: 4rem;
-  background-color: #ffffff;
+  /* background-color: #3d1f1f; */
 }
 
 .field-out__text {
   font-size: 2.5rem;
   font-weight: 700;
   width: 73rem;
+  height: 20rem;
 }
 
 .field-input {
@@ -106,6 +107,7 @@ h6 {
   box-shadow: -1em -1em 1.5em rgba(0, 0, 0, 0.6), 0 0 0 1px #aaa inset;
   row-gap: 0.5rem;
   padding: 1rem;
+  margin-top: 2rem;
 }
 
 h1 {
