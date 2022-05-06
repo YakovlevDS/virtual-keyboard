@@ -8,5 +8,5 @@ import virtualBoard from './modules/virtualBoard';
 renderBody();
 renderKeyboard(bool);
 init();
-switchLan(bool);
+// switchLan(bool);
 virtualBoard();

@@ -3,6 +3,8 @@ import ru from './db/ru';
 import init from './init';
 import Row from './renderRow';
 import Btn from './renderBtn';
+import { set } from './db/store';
+
 
 const renderKeyboard = (bool) => {
   const outputArea = document.querySelector('.field-out__text');
@@ -63,44 +65,64 @@ const renderKeyboard = (bool) => {
   // console.dir(document.querySelector('.input__key'));
   // console.log(arrButtons);
 
-  // const upCase = (isUp = false) => {
-  //   if (isUp) {
-  //     arrButtons.forEach((i) => {
-  //       if (i.divUp) {
-  //         if (isShift) {
-  //           i.divUp.classList.add('up-active');
-  //           i.divMain.classList.add('up-inactive');
-  //         }
-  //       }
-  //       if (!i.isFn && isCaps && !isShift && !i.divUp.innerHTML) {
-  //         i.divMain.innerHTML = i.big;
-  //       } else if (!i.isFn && isCaps && isShift) {
-  //         i.divMain.innerHTML = i.small;
-  //       } else if (!i.isFn && !i.divUp.innerHTML) {
-  //         i.divMain.innerHTML = i.big;
-  //       }
-  //     });
-  //   } else {
-  //     arrButtons.forEach((u) => {
-  //       if (u.divUp.innerHTML && !u.isFn) {
-  //         u.divUp.classList.remove('up-active');
-  //         u.divMain.classList.remove('up-inactive');
-  //         if (!isCaps) {
-  //           u.divMain.innerHTML = u.small;
-  //         } else if (isCaps) {
-  //           u.divMain.innerHTML = u.big;
-  //         }
-  //       } else if (!u.isFn) {
-  //         if (isCaps) {
-  //           u.divMain.innerHTML = u.big;
-  //         } else {
-  //           u.divMain.innerHTML = u.small;
-  //         }
-  //       }
-  //     });
-  //   }
-  // };
+  const upCase = (isUp) => {
+    if (isUp) {
+      arrButtons.forEach((i) => {
+        if (i.divUp) {
+          if (isShift) {
+            i.divUp.classList.add('up-active');
+            i.divMain.classList.add('up-inactive');
+          }
+        }
+        if (!i.isFn && isCaps && !isShift && !i.divUp.innerHTML) {
+          i.divMain.innerHTML = i.big;
+        } else if (!i.isFn && isCaps && isShift) {
+          i.divMain.innerHTML = i.small;
+        } else if (!i.isFn && !i.divUp.innerHTML) {
+          i.divMain.innerHTML = i.big;
+        }
+      });
+    } else {
+      arrButtons.forEach((u) => {
+        if (u.divUp.innerHTML && !u.isFn) {
+          u.divUp.classList.remove('up-active');
+          u.divMain.classList.remove('up-inactive');
+          if (!isCaps) {
+            u.divMain.innerHTML = u.small;
+          } else if (isCaps) {
+            u.divMain.innerHTML = u.big;
+          }
+        } else if (!u.isFn) {
+          if (isCaps) {
+            u.divMain.innerHTML = u.big;
+          } else {
+            u.divMain.innerHTML = u.small;
+          }
+        }
+      });
+    }
+  };
+  function switchLang() {
+    bool = !bool
+    set('langEn', bool);
+    console.log(arrButtons);
 
+    arrButtons.forEach((b) => {
+      const btn = lang.find((i) => i.code === b.code);
+      console.log(btn);
+
+      if (!btn) return;
+      b.big = btn.big;
+      b.small = btn.small;
+      if (btn.big && btn.big.match(/[^a-zA-Zа-яА-ЯёЁ0-9]/g)) {
+        b.divUp.innerHTML = btn.big;
+      } else {
+        b.divUp.innerHTML = '';
+      }
+      b.divMain.innerHTML = btn.small;
+    });
+    if (isCaps) upCase(true);
+  }
   function clearBtns(target) {
     // console.log(btnPress[target]);
     if (!btnPress[target]) return;
@@ -115,7 +137,7 @@ const renderKeyboard = (bool) => {
     const { code } = ev.target.dataset;
     if (code === 'ShiftLeft' || code === 'ShiftRight') {
       isShift = false;
-      // upCase(false);
+      upCase(false);
       button[code].divBtn.classList.remove('pressed');
     }
     if (code === 'ControlLeft' || code === 'ControlRight') { isCtrl = false; }
@@ -203,20 +225,20 @@ const renderKeyboard = (bool) => {
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
         isShift = true;
       }
-      // if (isShift) { upCase(true); }
+      if (isShift) { upCase(true); }
       if (e.code.match(/Control|Alt|Caps/) && (e.repeat)) { return; }
       if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = true; }
       if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = true; }
-      // if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) {switchLan()}
-      // if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) {switchLan();}
+      if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) { switchLang() }
+      if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) { switchLang() }
       btn.divBtn.classList.add('pressed');
 
       if (e.code === 'CapsLock' && !isCaps) {
         isCaps = true;
-        // upCase(true);
+        upCase(true);
       } else if (e.code === 'CapsLock' && isCaps) {
         isCaps = false;
-        // upCase(false);
+        upCase(false);
         btn.divBtn.classList.remove('pressed');
       }
       if (!isCaps) {
@@ -243,7 +265,7 @@ const renderKeyboard = (bool) => {
     }
     if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
       isShift = false;
-      // upCase(false);
+      upCase(false);
     }
     if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = false; }
     if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = false; }
