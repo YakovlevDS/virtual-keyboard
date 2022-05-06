@@ -5,11 +5,9 @@ import Row from './renderRow';
 import Btn from './renderBtn';
 import { set } from './db/store';
 
-
 const renderKeyboard = (bool) => {
   const outputArea = document.querySelector('.field-out__text');
   let isShift = false;
-  let isAlt = false;
   let isCtrl = false;
   let isCaps = false;
   const btnPress = {};
@@ -103,7 +101,7 @@ const renderKeyboard = (bool) => {
     }
   };
   function switchLang() {
-    bool = !bool
+    bool = !bool;
     set('langEn', bool);
     console.log(arrButtons);
 
@@ -141,19 +139,16 @@ const renderKeyboard = (bool) => {
       button[code].divBtn.classList.remove('pressed');
     }
     if (code === 'ControlLeft' || code === 'ControlRight') { isCtrl = false; }
-    if (code === 'AltLeft' || code === 'AltRight') {
-      isAlt = false;
-    }
+
     clearBtns(code);
     // if (button[code] && !isCaps) { button[code].divBtn.classList.remove('pressed'); }
     // button[code].divBtn.removeEventListener('mouseleave', clearState);
     outputArea.focus();
-  };
+  }
 
   const outPrint = (btn, sml) => {
-
     let pos = outputArea.selectionStart;
-    const x = btn.code
+    const x = btn.code;
     console.log(x);
 
     const left = outputArea.value.slice(0, pos);
@@ -204,8 +199,7 @@ const renderKeyboard = (bool) => {
     if (navigationHandle[x]) {
       // console.log('okk');
       navigationHandle[x]();
-    }
-    else if (btn.isFn) {
+    } else if (btn.isFn) {
       // console.log('ok');
       pos += 1;
       outputArea.value = `${left}${sml || ''}${right}`;
@@ -228,9 +222,8 @@ const renderKeyboard = (bool) => {
       if (isShift) { upCase(true); }
       if (e.code.match(/Control|Alt|Caps/) && (e.repeat)) { return; }
       if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = true; }
-      if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = true; }
-      if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) { switchLang() }
-      if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) { switchLang() }
+      if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) { switchLang(); }
+      if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) { switchLang(); }
       btn.divBtn.classList.add('pressed');
 
       if (e.code === 'CapsLock' && !isCaps) {
@@ -268,7 +261,6 @@ const renderKeyboard = (bool) => {
       upCase(false);
     }
     if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = false; }
-    if (e.code === 'AltLeft' || e.code === 'AltRight') { isAlt = false; }
     if (!e.code === 'CapsLock') btn.divBtn.classList.remove('pressed');
   };
 
