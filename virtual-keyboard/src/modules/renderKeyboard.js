@@ -11,7 +11,6 @@ import { set } from './db/store';
 const renderKeyboard = (bool) => {
   const outputArea = document.querySelector('.field-out__text');
   let isShift = false;
-  const iSAlt = false;
   let isCtrl = false;
   let isCaps = false;
   const btnPress = {};
@@ -185,8 +184,7 @@ const renderKeyboard = (bool) => {
         pos += 1;
       },
       CapsLock: () => {
-        outputArea.value = `${left} ${right}`;
-        pos = pos;
+        // outputArea.value = `${left} ${right}`;
       },
     };
     if (navigationHandle[x]) {
@@ -206,7 +204,7 @@ const renderKeyboard = (bool) => {
       if (!e.type === 'mousedown' && e.type === 'mouseup') {
         e.preventDefault();
       }
-      if (e.code === 'ShiftLeft' || e.code === 'ShiftRight' && e.type === 'mousedown') isShift = true;
+      if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && e.type === 'mousedown') isShift = true;
 
       if (isShift) { upCase(true); }
       if (e.code.match(/Control|Alt|Caps/) && (e.repeat)) { return; }

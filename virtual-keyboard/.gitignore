@@ -28,6 +28,6 @@ node_modules/
 .eslintcache
 
 # Build results
-dist
+
 #package.lock
-package-lock.json 
+package-lock.json

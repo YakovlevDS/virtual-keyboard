@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("./asset/fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./asset/fonts/Roboto-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: bold;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  font-weight: normal;
+  color: rgb(10, 1, 1);
+  background: linear-gradient(238deg, #d1074a, #f67f07, #1847d4, #19f505);
+  background-size: 240% 240%;
+  animation: gradient-animation 28s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 76.8rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.field-out {
+  margin: 4rem;
+}
+
+.field-out__text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 73rem;
+  height: 20rem;
+}
+
+.field-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin: 2rem, 4rem;
+  background: rgb(83, 80, 80);
+  box-shadow: -1em -1em 1.5em rgba(0, 0, 0, 0.6), 0 0 0 1px #aaa inset;
+  row-gap: 0.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* h1 {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+} */
+
+p {
+  font-size: 1.6rem;
+  margin: 0.2rem;
+}
+
+.row {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.input__key {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  color: #3a424e;
+  background: rgb(41, 40, 40)
+    radial-gradient(
+      circle at 0 0,
+      rgba(221, 104, 104, 0.75),
+      rgba(66, 44, 44, 0.35)
+    );
+  box-shadow: inset rgba(0, 0, 0, 0.75) -0.2rem -0.2rem 0.2rem,
+    inset rgba(255, 255, 255, 0.9) 0.2rem 0.2rem 0.2rem,
+    rgba(0, 0, 0, 0.8) 0.2rem 0.2rem 0.2rem -0.2rem;
+  /* color: #0D1117; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  border: 0.1rem solid rgb(0, 255, 0);
+  border-radius: 0.5rem;
+}
+
+.input__key:active {
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2),
+    0 0 0 0.1rem rgba(0, 0, 0, 0.4),
+    -0.03rem -0.1rem 0.04rem rgba(16, 114, 29, 0.8) inset;
+}
+
+.input__key:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.field-text {
+  margin: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.upper {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.2rem;
+  color: #f7f0f0;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.down {
+  color: #fafafc;
+  align-self: center;
+  font-size: 1.9rem;
+  font-weight: 900;
+}
+
+.fsz {
+  font-size: 1.5rem;
+}
+
+.big {
+  width: 9.5rem;
+}
+
+.sm {
+  width: 4.5rem;
+}
+
+.enter {
+  width: 9rem;
+}
+
+.sp {
+  width: 28rem;
+}
+
+.ctrl {
+  width: 6.5rem;
+}
+
+.pressed {
+  background-color: #25ec1b;
+  transform: perspective(300px) scale(0.97);
+  box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw
+      #71b9ff,
+    inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #0065c8;
+  text-shadow: 0 0 10px #9bcc14, 0 0 15px #036811, 0 0 20px #99ff85;
+}
+
+.pressed .down {
+  color: rgb(39, 21, 21);
+}
+
+.upper.up-active:not(:empty) {
+  color: rgb(138, 243, 135);
+  font-size: 1.8rem;
+  top: 0.5rem;
+  left: 1.1rem;
+}
+
+.upper.up-active:not(:empty) ~ .down.up-inactive {
+  display: none;
+  font-size: 2rem;
+  text-align: center;
+  padding-right: 1rem;
+  width: 50%;
+  transform-origin: center;
+}
+/*------------- header-text -----------*/
+.text-effect {
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  filter: contrast(110%) brightness(190%);
+  width: 30rem;
+  height: 11rem;
+}
+
+.neon {
+  position: relative;
+  background: rgb(0, 0, 0);
+  color: transparent;
+}
+.neon::before,
+.neon::after {
+  content: attr(data-text);
+  color: white;
+  filter: blur(0.02em);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.neon::after {
+  mix-blend-mode: difference;
+}
+
+.gradient,
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.gradient {
+  background: linear-gradient(45deg, red, blue);
+  mix-blend-mode: multiply;
+}
+
+.spotlight {
+  -webkit-animation: light 15s infinite linear;
+  animation: light 15s infinite linear;
+  background: radial-gradient(circle, white, transparent 25%) 0 0/25% 25%,
+    radial-gradient(circle, white, black 25%) 50% 50%/12.5% 12.5%;
+  top: -100%;
+  left: -100%;
+  mix-blend-mode: color-dodge;
+}
+
+@-webkit-keyframes light {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+
+@keyframes light {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+.neon {
+  font: 700 5rem "Lato", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+.neon:focus {
+  outline: none;
+  border: 1px dotted white;
+}
+/* --------------typing */
+.typing2,
+.typing1,
+.typing {
+  color: rgb(37, 1, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  /* border-right: 3px solid; */
+  font-size: 1.8rem;
+}
+.typing {
+  animation: typing 3s steps(35), blink 0.5s step-end infinite alternate;
+  width: 70rem;
+}
+.typing1 {
+  animation: typing 3s steps(35) 3s, blink 0.5s step-end infinite alternate;
+  width: 50rem;
+}
+.typing2 {
+  animation: typing 3s steps(35) 6s, blink 0.5s step-end infinite alternate;
+  border-right: 3px solid;
+  width: 37rem;
+}
+.typing3 {
+  animation: typing 3s steps(35), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
