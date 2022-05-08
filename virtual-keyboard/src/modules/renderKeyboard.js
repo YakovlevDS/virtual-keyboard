@@ -1,6 +1,9 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-console */
+
 import en from './db/en';
 import ru from './db/ru';
-import init from './init';
 import Row from './renderRow';
 import Btn from './renderBtn';
 import { set } from './db/store';
@@ -8,11 +11,12 @@ import { set } from './db/store';
 const renderKeyboard = (bool) => {
   const outputArea = document.querySelector('.field-out__text');
   let isShift = false;
+  const iSAlt = false;
   let isCtrl = false;
   let isCaps = false;
   const btnPress = {};
   const arrButtons = [];
-  const lang = bool ? en : ru;
+  let lang = bool ? en : ru;
 
   const input = document.createElement('div');
   input.classList.add('field-input');
@@ -42,11 +46,9 @@ const renderKeyboard = (bool) => {
     ).render(bool);
   });
 
-  init();
+  const allButtons = document.querySelectorAll('.input__key');
 
-  const allBtns = document.querySelectorAll('.input__key');
-
-  allBtns.forEach((b) => arrButtons.push({
+  allButtons.forEach((b) => arrButtons.push({
     divUp: b.children[0],
     divMain: b.children[1],
     divBtn: b,
@@ -57,16 +59,14 @@ const renderKeyboard = (bool) => {
     big: b.dataset.letter[0],
     small: b.dataset.letter[1],
   }));
-
-  // console.dir(document.querySelectorAll('.input__key')[0].children[0].innerHTML);
-  // console.dir(document.querySelectorAll('.input__key')[0].dataset);
-  // console.dir(document.querySelector('.input__key'));
-  // console.log(arrButtons);
-
   const upCase = (isUp) => {
     if (isUp) {
       arrButtons.forEach((i) => {
-        if (i.divUp) {
+        if (i.divUp.innerHTML) {
+          if (!isShift) {
+            i.divUp.classList.add('up-active');
+            i.divMain.classList.add('up-inactive');
+          }
           if (isShift) {
             i.divUp.classList.add('up-active');
             i.divMain.classList.add('up-inactive');
@@ -74,21 +74,28 @@ const renderKeyboard = (bool) => {
         }
         if (!i.isFn && isCaps && !isShift && !i.divUp.innerHTML) {
           i.divMain.innerHTML = i.big;
+          i.divUp.innerHTML = i.small;
         } else if (!i.isFn && isCaps && isShift) {
           i.divMain.innerHTML = i.small;
+          i.divUp.innerHTML = i.big;
         } else if (!i.isFn && !i.divUp.innerHTML) {
           i.divMain.innerHTML = i.big;
+          i.divUp.innerHTML = i.small;
         }
       });
     } else {
       arrButtons.forEach((u) => {
+        u.divUp.classList.remove('up-active');
+        u.divMain.classList.remove('up-inactive');
         if (u.divUp.innerHTML && !u.isFn) {
           u.divUp.classList.remove('up-active');
           u.divMain.classList.remove('up-inactive');
           if (!isCaps) {
             u.divMain.innerHTML = u.small;
+            u.divUp.innerHTML = u.big;
           } else if (isCaps) {
             u.divMain.innerHTML = u.big;
+            u.divUp.innerHTML = u.small;
           }
         } else if (!u.isFn) {
           if (isCaps) {
@@ -101,60 +108,44 @@ const renderKeyboard = (bool) => {
     }
   };
   function switchLang() {
-    bool = !bool;
-    set('langEn', bool);
-    console.log(arrButtons);
-
+    set('langEn', !bool);
+    lang = lang === en ? ru : en;
     arrButtons.forEach((b) => {
-      const btn = lang.find((i) => i.code === b.code);
-      console.log(btn);
-
+      const btn = lang.find((i) => b.code === i.code);
       if (!btn) return;
-      b.big = btn.big;
-      b.small = btn.small;
-      if (btn.big && btn.big.match(/[^a-zA-Zа-яА-ЯёЁ0-9]/g)) {
-        b.divUp.innerHTML = btn.big;
+      b.big = btn.main;
+      b.small = btn.sup;
+      if (btn.main && btn.sup.match(/[^a-zA-Zа-яА-ЯёЁ0-9]/g)) {
+        b.divUp.innerHTML = btn.sup;
       } else {
         b.divUp.innerHTML = '';
       }
-      b.divMain.innerHTML = btn.small;
+      b.divMain.innerHTML = btn.main;
     });
     if (isCaps) upCase(true);
   }
-  function clearBtns(target) {
-    // console.log(btnPress[target]);
-    if (!btnPress[target]) return;
-    if (!isCaps) btnPress[target].divBtn.classList.remove('pressed');
-    btnPress[target].divBtn.removeEventListener('mouseleave', clearState);
-    delete btnPress[target];
+  function clearPressed(item) {
+    if (!btnPress[item]) return;
+    if (!isCaps) btnPress[item].divBtn.classList.remove('pressed');
+    btnPress[item].divBtn.removeEventListener('mouseleave', clearButton);
+    delete btnPress[item];
   }
-  function clearState(ev) {
-    // console.log('ok');
-
-    const button = arrButtons.find((i) => i.code === ev.code);
-    const { code } = ev.target.dataset;
+  function clearButton(code) {
     if (code === 'ShiftLeft' || code === 'ShiftRight') {
       isShift = false;
       upCase(false);
-      button[code].divBtn.classList.remove('pressed');
+      btnPress[code].divBtn.classList.remove('pressed');
     }
-    if (code === 'ControlLeft' || code === 'ControlRight') { isCtrl = false; }
 
-    clearBtns(code);
-    // if (button[code] && !isCaps) { button[code].divBtn.classList.remove('pressed'); }
-    // button[code].divBtn.removeEventListener('mouseleave', clearState);
+    if (code.match(/Control/)) isCtrl = false;
+    clearPressed(code);
     outputArea.focus();
   }
-
   const outPrint = (btn, sml) => {
     let pos = outputArea.selectionStart;
     const x = btn.code;
-    console.log(x);
-
     const left = outputArea.value.slice(0, pos);
     const right = outputArea.value.slice(pos);
-    // console.log(left);
-    // console.log(right);
     const navigationHandle = {
       Tab: () => {
         outputArea.value = `${left}\t${right}`;
@@ -167,23 +158,23 @@ const renderKeyboard = (bool) => {
         pos += 1;
       },
       ArrowUp: () => {
-        const posLeft = outputArea.value.slice(0, pos).match(/(\n).*$(?!\1)/g) || [
+        const posLeft = outputArea.value.slice(pos).match(/(\n).*$(?!\1)/g) || [
           [1],
         ];
-        pos -= posLeft[0].length;
+        pos -= posLeft[0].length - 1;
       },
       ArrowDown: () => {
         const posLeft = outputArea.value.slice(pos).match(/^.*(\n).*(?!\1)/) || [
           [1],
         ];
-        pos += posLeft[0].length;
+        pos += posLeft[0].length - 1;
       },
       Enter: () => {
         outputArea.value = `${left}\n${right}`;
         pos += 1;
       },
       Delete: () => {
-        outputArea.value = `${left}${right.slice(1)}`;
+        document.getSelection().deleteFromDocument();
       },
       Backspace: () => {
         outputArea.value = `${left.slice(0, -1)}${right}`;
@@ -193,39 +184,40 @@ const renderKeyboard = (bool) => {
         outputArea.value = `${left} ${right}`;
         pos += 1;
       },
+      CapsLock: () => {
+        outputArea.value = `${left} ${right}`;
+        pos = pos;
+      },
     };
-    // console.log(btn.isFn = false);
-
     if (navigationHandle[x]) {
-      // console.log('okk');
       navigationHandle[x]();
     } else if (btn.isFn) {
-      // console.log('ok');
       pos += 1;
       outputArea.value = `${left}${sml || ''}${right}`;
     }
     outputArea.setSelectionRange(pos, pos);
   };
-
   const handleKeyboardEvent = (e) => {
     if (e.stopPropagation) e.stopPropagation();
     const btn = arrButtons.find((i) => i.code === e.code);
     if (!btn) return;
     outputArea.focus();
     if (e.type === 'keydown' || e.type === 'mousedown') {
-      // console.log(e.code);
-
-      if (!e.type === 'mousedown' && e.type === 'mouseup') { e.preventDefault(); }
-      if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
-        isShift = true;
+      if (!e.type === 'mousedown' && e.type === 'mouseup') {
+        e.preventDefault();
       }
+      if (e.code === 'ShiftLeft' || e.code === 'ShiftRight' && e.type === 'mousedown') isShift = true;
+
       if (isShift) { upCase(true); }
       if (e.code.match(/Control|Alt|Caps/) && (e.repeat)) { return; }
-      if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = true; }
-      if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && isShift) { switchLang(); }
-      if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && isCtrl) { switchLang(); }
-      btn.divBtn.classList.add('pressed');
 
+      if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+        isCtrl = true;
+      }
+      if ((e.code === 'AltLeft' || e.code === 'AltRight') && isCtrl) {
+        switchLang();
+      }
+      btn.divBtn.classList.add('pressed');
       if (e.code === 'CapsLock' && !isCaps) {
         isCaps = true;
         upCase(true);
@@ -245,31 +237,28 @@ const renderKeyboard = (bool) => {
       }
       btnPress[btn.code] = btn;
     } else if (e.type === 'keyup' || e.type === 'mouseup') {
-      // console.log('yes', btnPress);
-      // console.log(btnPress[btn.code]);
-      // ..проверить позже
-      clearBtns(btn.code);
-
-      // if (btn.code && !isCaps) { btnPress[btn.code].divBtn.classList.remove('pressed'); }
-      // btnPress[btn.code].divBtn.removeEventListener('mouseleave', clearState);
-
-      delete btnPress[btn.code];
-      // console.log(btnPress);
+      clearPressed(btn.code);
     }
-    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
-      isShift = false;
+
+    if ((e.code === 'ShiftLeft' || e.code === 'ShiftRight') && e.type === 'keyup') {
       upCase(false);
+      isShift = false;
     }
-    if (e.code === 'ControlLeft' || e.code === 'ControlRight') { isCtrl = false; }
     if (!e.code === 'CapsLock') btn.divBtn.classList.remove('pressed');
   };
 
   const handleMouseEvent = (e) => {
     e.stopPropagation();
     const targetBtn = e.target.closest('.input__key');
-    // console.log({ code: targetBtn.dataset.code, type: e.type });
     if (!targetBtn) return;
-    targetBtn.addEventListener('mouseleave', clearState);
+    if (targetBtn.dataset.code === 'ShiftLeft' || targetBtn.dataset.code === 'ShiftRight') return;
+    if (targetBtn.dataset.code === 'AltLeft' || targetBtn.dataset.code === 'AltRight') return;
+    if (targetBtn.dataset.code === 'ControlLeft' || targetBtn.dataset.code === 'ControlRight') return;
+    if (targetBtn.dataset.code === 'ControlLeft' || targetBtn.dataset.code === 'ControlRight') return;
+    if (targetBtn.dataset.code === 'MetaLeft') return;
+    console.log('targetBtn:E ', targetBtn.dataset);
+
+    targetBtn.addEventListener('mouseleave', clearButton);
     handleKeyboardEvent({ code: targetBtn.dataset.code, type: e.type });
   };
 

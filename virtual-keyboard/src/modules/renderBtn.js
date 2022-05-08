@@ -27,7 +27,7 @@ export default class Btn {
     btn.setAttribute('data-letter', this.dataLetter);
     btn.setAttribute('data-spec', this.dataSpec);
     btn.setAttribute('data-code', this.сode);
-    btn.setAttribute('data-isFn', this.isFn);
+    btn.setAttribute('data-isfn', this.isFn);
 
     if (this.dataId === 14 || this.dataId === 30 || this.dataId === 43) { btn.classList.add('big'); }
     if (this.dataId === 60) { btn.classList.add('sp'); }

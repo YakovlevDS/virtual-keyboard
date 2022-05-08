@@ -1,66 +1,62 @@
-/* @import url('./modules//css2?family=Roboto:wght@400;700&display=swap'); */
 
 @font-face {
-    font-family: "Roboto";
-    src: url("./asset/fonts/Roboto-Regular.ttf") format("ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Roboto";
+  src: url("./asset/fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("./asset/fonts/Roboto-Bold.ttf") format("ttf");
-    font-weight: 700;
-    font-style: bold;
+  font-family: "Roboto";
+  src: url("./asset/fonts/Roboto-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: bold;
 }
 
 *::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
-
-/* 62,5% -ЭТО ДЛЯ УДОБСТВА ПЕРЕСЧЕТОВ PX В REM 16PX*0.625=10PX ===ЭТО БАЗА ДЛЯ ЭТОГО ДОКУМЕНТА( ПО УМОЛЧАНИЮ REM ОТЧИТЫВАЛ БЫ ОТ 16PX) */
-
 body {
-    font-family: "Roboto", sans-serif;
-    font-size: 62.5%;
-    font-weight: normal;
-    color: rgb(63, 5, 5);
-    background: linear-gradient(238deg, #59ff4f, #ac3320, #74a2fc, #5c9bc2);
-    background-size: 240% 240%;
-    animation: gradient-animation 28s ease infinite;
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  font-weight: normal;
+  color: rgb(63, 5, 5);
+  background: linear-gradient(238deg, #59ff4f, #ac3320, #74a2fc, #5c9bc2);
+  background-size: 240% 240%;
+  animation: gradient-animation 28s ease infinite;
 }
 
 @keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 button,
 input {
-    outline: none;
-    border: none;
-    cursor: pointer;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 h1,
@@ -69,168 +65,173 @@ h3,
 h4,
 h5,
 h6 {
-    padding: 0;
-    margin: 0;
-}
-
-down {
-    width: 128rem;
-    margin: auto;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
-    width: 128rem;
-    margin: auto;
-    /* background-color: #0D1117; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+  width: 76.8rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .field-out {
-    margin: 4rem;
-    background-color: #ffffff;
+  margin: 4rem;
 }
 
 .field-out__text {
-    font-size: 2.5rem;
-    font-weight: 700;
-    width: 90%;
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 73rem;
+  height: 20rem;
 }
 
 .field-input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    margin: 2rem, 4rem;
-    background: rgb(83, 80, 80);
-    box-shadow: -1em -1em 1.5em rgba(0, 0, 0, 0.6), 0 0 0 1px #aaa inset;
-    row-gap: 0.5rem;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin: 2rem, 4rem;
+  background: rgb(83, 80, 80);
+  box-shadow: -1em -1em 1.5em rgba(0, 0, 0, 0.6), 0 0 0 1px #aaa inset;
+  row-gap: 0.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
 h1 {
-    margin-top: 2rem;
-    font-size: 3rem;
-    font-weight: 700;
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 p {
-    font-size: 1.6rem;
-    margin: 0.2rem;
+  font-size: 1.6rem;
+  margin: 0.2rem;
 }
 
 .row {
-    display: flex;
-    column-gap: 0.5rem;
+  display: flex;
+  column-gap: 0.5rem;
 }
 
 .input__key {
-    position: relative;
-    width: 4rem;
-    height: 4rem;
-    color: #3a424e;
-    background: rgb(41, 40, 40) radial-gradient( circle at 0 0, rgba(221, 104, 104, 0.75), rgba(66, 44, 44, 0.35));
-    box-shadow: inset rgba(0, 0, 0, 0.75) -0.2rem -0.2rem 0.2rem, inset rgba(255, 255, 255, 0.9) 0.2rem 0.2rem 0.2rem, rgba(0, 0, 0, 0.8) 0.2rem 0.2rem 0.2rem -0.2rem;
-    /* color: #0D1117; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    flex-direction: column;
-    border: 0.1rem solid rgb(0, 255, 0);
-    border-radius: 0.5rem;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  color: #3a424e;
+  background: rgb(41, 40, 40)
+    radial-gradient(
+      circle at 0 0,
+      rgba(221, 104, 104, 0.75),
+      rgba(66, 44, 44, 0.35)
+    );
+  box-shadow: inset rgba(0, 0, 0, 0.75) -0.2rem -0.2rem 0.2rem,
+    inset rgba(255, 255, 255, 0.9) 0.2rem 0.2rem 0.2rem,
+    rgba(0, 0, 0, 0.8) 0.2rem 0.2rem 0.2rem -0.2rem;
+  /* color: #0D1117; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  border: 0.1rem solid rgb(0, 255, 0);
+  border-radius: 0.5rem;
 }
 
 .input__key:active {
-    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2), 0 0 0 0.1rem rgba(0, 0, 0, 0.4), -0.03rem -0.1rem 0.04rem rgba(16, 114, 29, 0.8) inset;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2),
+    0 0 0 0.1rem rgba(0, 0, 0, 0.4),
+    -0.03rem -0.1rem 0.04rem rgba(16, 114, 29, 0.8) inset;
 }
 
 .input__key:hover {
-    cursor: pointer;
-    transform: scale(1.05);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
-.input__key:hover .down {
-    color: #4d8dee;
-}
+
 
 .field-text {
-    margin: 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+  margin: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .upper {
-    position: absolute;
-    top: 0.1rem;
-    left: 0.2rem;
-    color: #f7f0f0;
-    align-self: flex-start;
-    font-size: 1.4rem;
-    font-weight: 800;
+  position: absolute;
+  top: 0.1rem;
+  left: 0.2rem;
+  color: #f7f0f0;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .down {
-    color: #fafafc;
-    align-self: center;
-    font-size: 2rem;
-    font-weight: 900;
+  color: #fafafc;
+  align-self: center;
+  font-size: 1.9rem;
+  font-weight: 900;
 }
 
 .fsz {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .big {
-    width: 9.5rem;
+  width: 9.5rem;
 }
 
 .sm {
-    width: 4.5rem;
+  width: 4.5rem;
 }
 
 .enter {
-    width: 9rem;
+  width: 9rem;
 }
 
 .sp {
-    width: 28rem;
+  width: 28rem;
 }
 
 .ctrl {
-    width: 6.5rem;
+  width: 6.5rem;
 }
 
 .pressed {
-    background-color: #25ec1b;
-    transform: perspective(300px) scale(0.97);
-    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #71b9ff, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #0065c8;
-    text-shadow: 0 0 10px #9bcc14, 0 0 15px #036811, 0 0 20px #99ff85;
+  background-color: #25ec1b;
+  transform: perspective(300px) scale(0.97);
+  box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw
+      #71b9ff,
+    inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #0065c8;
+  text-shadow: 0 0 10px #9bcc14, 0 0 15px #036811, 0 0 20px #99ff85;
 }
 
 .pressed .down {
-    color: rgb(39, 21, 21);
+  color: rgb(39, 21, 21);
 }
 
 .upper.up-active:not(:empty) {
-    color: rgb(92, 20, 50);
-    font-size: 2.5rem;
+  color: rgb(138, 243, 135);
+  font-size: 1.8rem;
+  top: 0.5rem;
+  left: 1.1rem;
 }
 
-.upper.up-active:not(:empty)~.down.up-inactive {
-    color: #0f0ff8;
-    font-size: 2rem;
-    text-align: center;
-    padding-right: 1rem;
-    width: 50%;
-    transform-origin: center;
-    transform: translateX(20px);
+.upper.up-active:not(:empty) ~ .down.up-inactive {
+  display: none;
+  font-size: 2rem;
+  text-align: center;
+  padding-right: 1rem;
+  width: 50%;
+  transform-origin: center;
 }
