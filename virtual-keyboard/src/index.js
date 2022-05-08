@@ -4,4 +4,3 @@ import renderKeyboard from './modules/renderKeyboard';
 
 renderBody();
 renderKeyboard(bool);
-

@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: "Roboto";
   src: url("./asset/fonts/Roboto-Regular.ttf") format("ttf");
@@ -22,8 +21,8 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 62.5%;
   font-weight: normal;
-  color: rgb(63, 5, 5);
-  background: linear-gradient(238deg, #59ff4f, #ac3320, #74a2fc, #5c9bc2);
+  color: rgb(10, 1, 1);
+  background: linear-gradient(238deg, #d1074a, #f67f07, #1847d4, #19f505);
   background-size: 240% 240%;
   animation: gradient-animation 28s ease infinite;
 }
@@ -104,11 +103,11 @@ h6 {
   margin-top: 2rem;
 }
 
-h1 {
+/* h1 {
   margin-top: 2rem;
   font-size: 3rem;
   font-weight: 700;
-}
+} */
 
 p {
   font-size: 1.6rem;
@@ -154,8 +153,6 @@ p {
   cursor: pointer;
   transform: scale(1.05);
 }
-
-
 
 .field-text {
   margin: 1rem 2rem;
@@ -234,4 +231,118 @@ p {
   padding-right: 1rem;
   width: 50%;
   transform-origin: center;
+}
+/*------------- header-text -----------*/
+.text-effect {
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  filter: contrast(110%) brightness(190%);
+  width: 30rem;
+  height: 11rem;
+}
+
+.neon {
+  position: relative;
+  background: rgb(0, 0, 0);
+  color: transparent;
+}
+.neon::before,
+.neon::after {
+  content: attr(data-text);
+  color: white;
+  filter: blur(0.02em);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.neon::after {
+  mix-blend-mode: difference;
+}
+
+.gradient,
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.gradient {
+  background: linear-gradient(45deg, red, blue);
+  mix-blend-mode: multiply;
+}
+
+.spotlight {
+  -webkit-animation: light 15s infinite linear;
+  animation: light 15s infinite linear;
+  background: radial-gradient(circle, white, transparent 25%) 0 0/25% 25%,
+    radial-gradient(circle, white, black 25%) 50% 50%/12.5% 12.5%;
+  top: -100%;
+  left: -100%;
+  mix-blend-mode: color-dodge;
+}
+
+@-webkit-keyframes light {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+
+@keyframes light {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+.neon {
+  font: 700 5rem "Lato", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+.neon:focus {
+  outline: none;
+  border: 1px dotted white;
+}
+/* --------------typing */
+.typing2,
+.typing1,
+.typing {
+  color: rgb(37, 1, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  /* border-right: 3px solid; */
+  font-size: 1.8rem;
+}
+.typing {
+  animation: typing 3s steps(35), blink 0.5s step-end infinite alternate;
+  width: 70rem;
+}
+.typing1 {
+  animation: typing 3s steps(35) 3s, blink 0.5s step-end infinite alternate;
+  width: 50rem;
+}
+.typing2 {
+  animation: typing 3s steps(35) 6s, blink 0.5s step-end infinite alternate;
+  border-right: 3px solid;
+  width: 37rem;
+}
+.typing3 {
+  animation: typing 3s steps(35), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
